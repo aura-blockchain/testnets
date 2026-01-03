@@ -1,6 +1,15 @@
 # AURA Devnet (aura-testnet-1)
 
-Development network for the AURA blockchain. Access is limited to approved developers and contributors.
+Development network for the AURA blockchain.
+
+## Access
+
+This devnet is currently limited to approved developers and contributors. To request access:
+
+1. Review the [AURA documentation](https://github.com/aura-blockchain/aura)
+2. Contact the AURA team to request devnet tokens
+
+Artifacts (genesis, binaries, configs) are publicly available. Token distribution requires approval.
 
 ## Chain Information
 
@@ -10,6 +19,13 @@ Development network for the AURA blockchain. Access is limited to approved devel
 | Genesis Time | 2025-01-01T00:00:00Z |
 | Native Denom | `uaura` |
 | Binary | `aurad` |
+
+## Public Resources
+
+| Resource | URL |
+|----------|-----|
+| Explorer | https://explorer.aurablockchain.org |
+| Artifacts | https://artifacts.aurablockchain.org |
 
 ## Endpoints
 
@@ -48,11 +64,6 @@ persistent_peers = "575fa6d80a2740df7e1ef4111c1a9d394f23b73f@158.69.119.76:26656
 aurad start --home ~/.aura
 ```
 
-## Artifacts
+### 4. Request tokens
 
-Genesis and configuration files are also available at:
-https://artifacts.aurablockchain.org
-
-## Faucet
-
-Contact the AURA team for devnet tokens.
+Contact the AURA team after your node is synced to receive devnet tokens.

@@ -1,6 +1,6 @@
-# AURA Testnet 1
+# AURA Devnet (aura-testnet-1)
 
-Public testnet for the AURA blockchain.
+Development network for the AURA blockchain. Access is limited to approved developers and contributors.
 
 ## Chain Information
 
@@ -55,4 +55,4 @@ https://artifacts.aurablockchain.org
 
 ## Faucet
 
-Request testnet tokens in the AURA Discord.
+Contact the AURA team for devnet tokens.

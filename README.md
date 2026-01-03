@@ -1,12 +1,12 @@
-# AURA Testnets
+# AURA Networks
 
-This repository contains genesis files, configuration, and documentation for AURA public testnets.
+This repository contains genesis files, configuration, and documentation for AURA development networks.
 
-## Active Testnets
+## Active Networks
 
 | Network | Chain ID | Status |
 |---------|----------|--------|
-| [aura-testnet-1](./aura-testnet-1/) | `aura-testnet-1` | Active |
+| [aura-testnet-1](./aura-testnet-1/) | `aura-testnet-1` | Devnet |
 
 ## Resources
 

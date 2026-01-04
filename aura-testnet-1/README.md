@@ -11,6 +11,45 @@ Development network for the AURA blockchain - a Cosmos SDK chain focused on iden
 | Native Denom | `uaura` |
 | Binary | `aurad` |
 | Bech32 Prefix | `aura` |
+| Cosmos SDK | v0.50.x |
+| Go Version | 1.22+ |
+
+## Hardware Requirements
+
+| Specification | Minimum | Recommended |
+|---------------|---------|-------------|
+| CPU | 4 cores | 8 cores |
+| RAM | 8 GB | 16 GB |
+| Disk | 100 GB SSD | 500 GB NVMe |
+| Network | 100 Mbps | 1 Gbps |
+
+## Software Requirements
+
+| Software | Version |
+|----------|---------|
+| Go | 1.22 or higher |
+| Make | 4.0+ |
+| Git | 2.0+ |
+| jq | 1.6+ (for scripts) |
+
+## Pre-built Binaries
+
+Download pre-compiled binaries (recommended for quick setup):
+
+| Platform | Architecture | Download | Checksum |
+|----------|--------------|----------|----------|
+| Linux | amd64 | [aurad-linux-amd64](https://artifacts.aurablockchain.org/bin/aurad-linux-amd64) | [SHA256](https://artifacts.aurablockchain.org/bin/SHA256SUMS) |
+| Linux | arm64 | [aurad-linux-arm64](https://artifacts.aurablockchain.org/bin/aurad-linux-arm64) | [SHA256](https://artifacts.aurablockchain.org/bin/SHA256SUMS) |
+| macOS | amd64 | [aurad-darwin-amd64](https://artifacts.aurablockchain.org/bin/aurad-darwin-amd64) | [SHA256](https://artifacts.aurablockchain.org/bin/SHA256SUMS) |
+| macOS | arm64 | [aurad-darwin-arm64](https://artifacts.aurablockchain.org/bin/aurad-darwin-arm64) | [SHA256](https://artifacts.aurablockchain.org/bin/SHA256SUMS) |
+
+```bash
+# Example: Download and install on Linux amd64
+curl -L https://artifacts.aurablockchain.org/bin/aurad-linux-amd64 -o aurad
+chmod +x aurad
+sudo mv aurad /usr/local/bin/
+aurad version
+```
 
 ## Public Artifacts
 
@@ -23,17 +62,41 @@ All artifacts available at: **https://artifacts.aurablockchain.org**
 | seeds.txt | [Download](https://artifacts.aurablockchain.org/seeds.txt) | Seed nodes |
 | addrbook.json | [Download](https://artifacts.aurablockchain.org/addrbook.json) | Address book |
 | chain.json | [Download](https://artifacts.aurablockchain.org/chain.json) | Chain registry metadata |
+| assetlist.json | [Download](https://artifacts.aurablockchain.org/assetlist.json) | Asset metadata |
+| app.toml | [Download](https://artifacts.aurablockchain.org/config/app.toml) | Example app config |
+| config.toml | [Download](https://artifacts.aurablockchain.org/config/config.toml) | Example node config |
+
+## Snapshots
+
+For faster sync, download a recent snapshot:
+
+| Type | Size | Block Height | Download |
+|------|------|--------------|----------|
+| Pruned | ~5 GB | Updated daily | [Download](https://artifacts.aurablockchain.org/snapshots/aura-testnet-1-pruned-latest.tar.lz4) |
+| Archive | ~20 GB | Updated weekly | [Download](https://artifacts.aurablockchain.org/snapshots/aura-testnet-1-archive-latest.tar.lz4) |
+
+```bash
+# Download and extract snapshot
+curl -L https://artifacts.aurablockchain.org/snapshots/aura-testnet-1-pruned-latest.tar.lz4 | lz4 -dc - | tar -xf - -C ~/.aura
+```
 
 ## Public Endpoints
 
-| Service | URL |
-|---------|-----|
-| RPC | https://testnet-rpc.aurablockchain.org |
-| REST API | https://testnet-api.aurablockchain.org |
-| gRPC | testnet-grpc.aurablockchain.org:443 |
-| WebSocket | wss://testnet-ws.aurablockchain.org |
-| Explorer | https://testnet-explorer.aurablockchain.org |
-| Faucet | https://testnet-faucet.aurablockchain.org |
+| Service | URL | Status |
+|---------|-----|--------|
+| RPC | https://testnet-rpc.aurablockchain.org | [Status](https://status.aurablockchain.org) |
+| REST API | https://testnet-api.aurablockchain.org | [Swagger](https://testnet-api.aurablockchain.org/swagger/) |
+| gRPC | testnet-grpc.aurablockchain.org:443 | - |
+| WebSocket | wss://testnet-ws.aurablockchain.org | - |
+| Explorer | https://testnet-explorer.aurablockchain.org | - |
+| Faucet | https://testnet-faucet.aurablockchain.org | - |
+| Status Page | https://status.aurablockchain.org | - |
+
+## API Documentation
+
+- **REST API (Swagger)**: https://testnet-api.aurablockchain.org/swagger/
+- **gRPC Reflection**: Enabled on testnet-grpc.aurablockchain.org:443
+- **Cosmos SDK API Docs**: https://docs.cosmos.network/api
 
 ## Peers
 
@@ -44,37 +107,52 @@ All artifacts available at: **https://artifacts.aurablockchain.org**
 
 ## Quick Start
 
-### 1. Install Binary
+### Option A: Pre-built Binary (Recommended)
 
 ```bash
+# 1. Download binary
+curl -L https://artifacts.aurablockchain.org/bin/aurad-linux-amd64 -o aurad
+chmod +x aurad
+sudo mv aurad /usr/local/bin/
+
+# 2. Initialize node
+aurad init <your-moniker> --chain-id aura-testnet-1
+
+# 3. Download genesis
+curl -o ~/.aura/config/genesis.json https://artifacts.aurablockchain.org/genesis.json
+
+# 4. Download recommended config
+curl -o ~/.aura/config/app.toml https://artifacts.aurablockchain.org/config/app.toml
+curl -o ~/.aura/config/config.toml https://artifacts.aurablockchain.org/config/config.toml
+
+# 5. Start node
+aurad start
+```
+
+### Option B: Build from Source
+
+```bash
+# 1. Install Go 1.22+
+# See https://golang.org/doc/install
+
+# 2. Clone and build
 git clone https://github.com/aura-blockchain/aura.git
 cd aura
+git checkout v0.1.0
 make install
+
+# 3. Verify installation
+aurad version
+# Expected: v0.1.0
+
+# 4. Continue from step 2 above
 ```
 
-### 2. Initialize Node
-
-```bash
-aurad init <your-moniker> --chain-id aura-testnet-1
-```
-
-### 3. Download Genesis
-
-```bash
-curl -o ~/.aura/config/genesis.json https://artifacts.aurablockchain.org/genesis.json
-```
-
-### 4. Configure Peers
+### Configure Peers
 
 ```bash
 PEERS="575fa6d80a2740df7e1ef4111c1a9d394f23b73f@158.69.119.76:26656,4f3f81bcbdf15ec836b899c1a0982f02a2603f5d@139.99.149.160:26656"
 sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$PEERS\"/" ~/.aura/config/config.toml
-```
-
-### 5. Start Node
-
-```bash
-aurad start
 ```
 
 ## State Sync (Fast Sync)
@@ -100,6 +178,14 @@ aurad start
 
 Visit the faucet: https://testnet-faucet.aurablockchain.org
 
+## Network Status
+
+Check current network status:
+
+- **Status Page**: https://status.aurablockchain.org
+- **Current Block Height**: `curl -s https://testnet-rpc.aurablockchain.org/status | jq -r .result.sync_info.latest_block_height`
+- **Network Info**: `curl -s https://testnet-rpc.aurablockchain.org/net_info | jq .result.n_peers`
+
 ## Become a Contributor
 
 For validator access or development contribution:
@@ -113,3 +199,5 @@ For validator access or development contribution:
 - [AURA Core Repository](https://github.com/aura-blockchain/aura)
 - [Documentation](https://testnet-docs.aurablockchain.org)
 - [Block Explorer](https://testnet-explorer.aurablockchain.org)
+- [API Swagger](https://testnet-api.aurablockchain.org/swagger/)
+- [Status Page](https://status.aurablockchain.org)

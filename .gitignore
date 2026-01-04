@@ -1,0 +1,69 @@
+# Claude Code directories
+.claude/
+
+# Binary files
+*.exe
+*.dll
+*.so
+*.dylib
+*.bin
+*.o
+*.a
+aurad
+aurad-*
+
+# Private keys and secrets
+*.pem
+*.key
+id_rsa*
+id_ed25519*
+priv_validator_key.json
+node_key.json
+
+# Environment files
+.env
+.env.*
+*.secret
+
+# Credentials
+credentials.json
+secrets.json
+*_credentials*
+
+# Local data
+data/
+*.db
+*.ldb
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.swp
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.code-workspace
+
+# Logs
+*.log
+logs/
+
+# Node modules (if any scripts)
+node_modules/
+
+# Build artifacts
+build/
+dist/
+
+# Snapshots (too large for git)
+*.tar.lz4
+*.tar.gz
+*.tar.bz2
+*.zip

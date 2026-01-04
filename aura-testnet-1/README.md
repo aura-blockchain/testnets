@@ -1,25 +1,6 @@
-# AURA Devnet (aura-testnet-1)
+# AURA Testnet (aura-testnet-1)
 
-Development network for the AURA blockchain.
-
-## Become a Contributor
-
-This devnet is for developers interested in long-term contribution to the AURA project. We're building a team of committed contributors to help develop, test, and improve the network before public launch.
-
-### How to Apply
-
-Choose any of the following methods:
-
-1. **GitHub** - [Submit a Devnet Access Request](https://github.com/aura-blockchain/testnets/issues/new?template=devnet-access.yml)
-2. **Email** - Contact dev@aurablockchain.org with your background and interest
-3. **Discord** - Join [discord.gg/aura](https://discord.gg/aura) and introduce yourself in #devnet-applications
-
-### What We're Looking For
-
-- Developers with blockchain, Cosmos SDK, or smart contract experience
-- Contributors interested in identity, compliance, and privacy modules
-- Long-term commitment to the project
-- Validators, node operators, and SDK developers
+Development network for the AURA blockchain - a Cosmos SDK chain focused on identity verification and compliance.
 
 ## Chain Information
 
@@ -29,56 +10,106 @@ Choose any of the following methods:
 | Genesis Time | 2025-01-01T00:00:00Z |
 | Native Denom | `uaura` |
 | Binary | `aurad` |
+| Bech32 Prefix | `aura` |
 
-## Public Resources
+## Public Artifacts
 
-These resources are publicly accessible:
+All artifacts available at: **https://artifacts.aurablockchain.org**
 
-| Resource | URL |
-|----------|-----|
-| Explorer | https://explorer.aurablockchain.org |
-| Artifacts | https://artifacts.aurablockchain.org |
-| Documentation | https://github.com/aura-blockchain/aura |
+| File | URL | Description |
+|------|-----|-------------|
+| genesis.json | [Download](https://artifacts.aurablockchain.org/genesis.json) | Genesis file (required) |
+| peers.txt | [Download](https://artifacts.aurablockchain.org/peers.txt) | Persistent peer list |
+| seeds.txt | [Download](https://artifacts.aurablockchain.org/seeds.txt) | Seed nodes |
+| addrbook.json | [Download](https://artifacts.aurablockchain.org/addrbook.json) | Address book |
+| chain.json | [Download](https://artifacts.aurablockchain.org/chain.json) | Chain registry metadata |
 
-## Endpoints
+## Public Endpoints
 
 | Service | URL |
 |---------|-----|
-| RPC | http://158.69.119.76:10657 |
-| REST/LCD | http://158.69.119.76:10317 |
-| gRPC | 158.69.119.76:10090 |
-| P2P | 158.69.119.76:26656 |
+| RPC | https://testnet-rpc.aurablockchain.org |
+| REST API | https://testnet-api.aurablockchain.org |
+| gRPC | testnet-grpc.aurablockchain.org:443 |
+| WebSocket | wss://testnet-ws.aurablockchain.org |
+| Explorer | https://testnet-explorer.aurablockchain.org |
+| Faucet | https://testnet-faucet.aurablockchain.org |
 
 ## Peers
 
 ```
 575fa6d80a2740df7e1ef4111c1a9d394f23b73f@158.69.119.76:26656
+4f3f81bcbdf15ec836b899c1a0982f02a2603f5d@139.99.149.160:26656
 ```
 
-## Quick Start (After Approval)
+## Quick Start
 
-Once your access request is approved:
-
-### 1. Download genesis
+### 1. Install Binary
 
 ```bash
-curl -o ~/.aura/config/genesis.json https://raw.githubusercontent.com/aura-blockchain/testnets/main/aura-testnet-1/genesis.json
+git clone https://github.com/aura-blockchain/aura.git
+cd aura
+make install
 ```
 
-### 2. Set peers
-
-Add to `~/.aura/config/config.toml`:
-
-```toml
-persistent_peers = "575fa6d80a2740df7e1ef4111c1a9d394f23b73f@158.69.119.76:26656"
-```
-
-### 3. Start node
+### 2. Initialize Node
 
 ```bash
-aurad start --home ~/.aura
+aurad init <your-moniker> --chain-id aura-testnet-1
 ```
 
-### 4. Receive tokens
+### 3. Download Genesis
 
-After approval, you'll receive devnet tokens to your provided wallet address.
+```bash
+curl -o ~/.aura/config/genesis.json https://artifacts.aurablockchain.org/genesis.json
+```
+
+### 4. Configure Peers
+
+```bash
+PEERS="575fa6d80a2740df7e1ef4111c1a9d394f23b73f@158.69.119.76:26656,4f3f81bcbdf15ec836b899c1a0982f02a2603f5d@139.99.149.160:26656"
+sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$PEERS\"/" ~/.aura/config/config.toml
+```
+
+### 5. Start Node
+
+```bash
+aurad start
+```
+
+## State Sync (Fast Sync)
+
+State sync allows rapid bootstrapping:
+
+```bash
+SNAP_RPC="https://testnet-rpc.aurablockchain.org:443"
+LATEST_HEIGHT=$(curl -s $SNAP_RPC/block | jq -r .result.block.header.height)
+BLOCK_HEIGHT=$((LATEST_HEIGHT - 1000))
+TRUST_HASH=$(curl -s "$SNAP_RPC/block?height=$BLOCK_HEIGHT" | jq -r .result.block_id.hash)
+
+sed -i.bak -E "s|^(enable[[:space:]]+=[[:space:]]+).*$|\1true|" ~/.aura/config/config.toml
+sed -i.bak -E "s|^(rpc_servers[[:space:]]+=[[:space:]]+).*$|\1\"$SNAP_RPC,$SNAP_RPC\"|" ~/.aura/config/config.toml
+sed -i.bak -E "s|^(trust_height[[:space:]]+=[[:space:]]+).*$|\1$BLOCK_HEIGHT|" ~/.aura/config/config.toml
+sed -i.bak -E "s|^(trust_hash[[:space:]]+=[[:space:]]+).*$|\1\"$TRUST_HASH\"|" ~/.aura/config/config.toml
+
+aurad tendermint unsafe-reset-all --home ~/.aura --keep-addr-book
+aurad start
+```
+
+## Get Testnet Tokens
+
+Visit the faucet: https://testnet-faucet.aurablockchain.org
+
+## Become a Contributor
+
+For validator access or development contribution:
+
+1. **GitHub** - [Submit a Devnet Access Request](https://github.com/aura-blockchain/testnets/issues/new?template=devnet-access.yml)
+2. **Email** - dev@aurablockchain.org
+3. **Discord** - [discord.gg/aura](https://discord.gg/aura)
+
+## Resources
+
+- [AURA Core Repository](https://github.com/aura-blockchain/aura)
+- [Documentation](https://testnet-docs.aurablockchain.org)
+- [Block Explorer](https://testnet-explorer.aurablockchain.org)

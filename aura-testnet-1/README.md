@@ -2,14 +2,24 @@
 
 Development network for the AURA blockchain.
 
-## Access
+## Become a Contributor
 
-This devnet is currently limited to approved developers and contributors. To request access:
+This devnet is for developers interested in long-term contribution to the AURA project. We're building a team of committed contributors to help develop, test, and improve the network before public launch.
 
-1. Review the [AURA documentation](https://github.com/aura-blockchain/aura)
-2. Contact the AURA team to request devnet tokens
+### How to Apply
 
-Artifacts (genesis, binaries, configs) are publicly available. Token distribution requires approval.
+Choose any of the following methods:
+
+1. **GitHub** - [Submit a Devnet Access Request](https://github.com/aura-blockchain/testnets/issues/new?template=devnet-access.yml)
+2. **Email** - Contact dev@aurablockchain.org with your background and interest
+3. **Discord** - Join [discord.gg/aura](https://discord.gg/aura) and introduce yourself in #devnet-applications
+
+### What We're Looking For
+
+- Developers with blockchain, Cosmos SDK, or smart contract experience
+- Contributors interested in identity, compliance, and privacy modules
+- Long-term commitment to the project
+- Validators, node operators, and SDK developers
 
 ## Chain Information
 
@@ -22,10 +32,13 @@ Artifacts (genesis, binaries, configs) are publicly available. Token distributio
 
 ## Public Resources
 
+These resources are publicly accessible:
+
 | Resource | URL |
 |----------|-----|
 | Explorer | https://explorer.aurablockchain.org |
 | Artifacts | https://artifacts.aurablockchain.org |
+| Documentation | https://github.com/aura-blockchain/aura |
 
 ## Endpoints
 
@@ -42,7 +55,9 @@ Artifacts (genesis, binaries, configs) are publicly available. Token distributio
 575fa6d80a2740df7e1ef4111c1a9d394f23b73f@158.69.119.76:26656
 ```
 
-## Quick Start
+## Quick Start (After Approval)
+
+Once your access request is approved:
 
 ### 1. Download genesis
 
@@ -64,6 +79,6 @@ persistent_peers = "575fa6d80a2740df7e1ef4111c1a9d394f23b73f@158.69.119.76:26656
 aurad start --home ~/.aura
 ```
 
-### 4. Request tokens
+### 4. Receive tokens
 
-Contact the AURA team after your node is synced to receive devnet tokens.
+After approval, you'll receive devnet tokens to your provided wallet address.

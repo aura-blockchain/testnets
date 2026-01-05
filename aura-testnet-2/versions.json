@@ -1,0 +1,12 @@
+{
+  "versions": [
+    {
+      "name": "v0.1.0",
+      "tag": "v0.1.0",
+      "height": 1,
+      "recommended_version": "v0.1.0",
+      "proposal": null,
+      "notes": "Initial testnet launch with auratest1 address prefix"
+    }
+  ]
+}

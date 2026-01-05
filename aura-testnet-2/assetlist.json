@@ -1,0 +1,26 @@
+{
+  "$schema": "../assetlist.schema.json",
+  "chain_name": "auratestnet2",
+  "assets": [
+    {
+      "description": "Native staking token of AURA Testnet",
+      "denom_units": [
+        {
+          "denom": "uaura",
+          "exponent": 0
+        },
+        {
+          "denom": "aura",
+          "exponent": 6
+        }
+      ],
+      "base": "uaura",
+      "name": "AURA Testnet",
+      "display": "aura",
+      "symbol": "AURA",
+      "logo_URIs": {
+        "png": "https://raw.githubusercontent.com/aura-blockchain/aura/main/assets/aura-logo.png"
+      }
+    }
+  ]
+}

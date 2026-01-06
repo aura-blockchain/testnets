@@ -61,8 +61,8 @@ enable = true
 # Swagger documentation
 swagger = true
 
-# API address
-address = "tcp://0.0.0.0:1317"
+# API address (bind localhost by default; expose via reverse proxy)
+address = "tcp://127.0.0.1:10317"
 
 # Maximum number of simultaneous connections
 max-open-connections = 1000
@@ -77,7 +77,7 @@ rpc-write-timeout = 0
 rpc-max-body-bytes = 1000000
 
 # Enable unsafe CORS
-enabled-unsafe-cors = true
+enabled-unsafe-cors = false
 
 ###############################################################################
 ###                           gRPC Configuration                            ###
@@ -87,8 +87,8 @@ enabled-unsafe-cors = true
 # Enable gRPC server
 enable = true
 
-# gRPC address
-address = "0.0.0.0:9090"
+# gRPC address (bind localhost by default)
+address = "127.0.0.1:10090"
 
 # Maximum receive message size
 max-recv-msg-size = "10485760"
@@ -104,11 +104,11 @@ max-send-msg-size = "2147483647"
 # Enable gRPC-web gateway
 enable = true
 
-# gRPC-web address
-address = "0.0.0.0:9091"
+# gRPC-web address (bind localhost by default)
+address = "127.0.0.1:10091"
 
 # Enable unsafe CORS
-enable-unsafe-cors = true
+enable-unsafe-cors = false
 
 ###############################################################################
 ###                        State Sync Configuration                         ###

@@ -60,25 +60,30 @@ scp ~/.aura-val2/config/priv_validator_key.json aura-testnet:~/.aura-val2/config
 ssh aura-testnet
 
 # config.toml
-sed -i 's/laddr = "tcp:\/\/127.0.0.1:26657"/laddr = "tcp:\/\/0.0.0.0:10657"/' ~/.aura-val1/config/config.toml
+sed -i 's/laddr = "tcp:\/\/127.0.0.1:26657"/laddr = "tcp:\/\/127.0.0.1:10657"/' ~/.aura-val1/config/config.toml
 sed -i 's/laddr = "tcp:\/\/0.0.0.0:26656"/laddr = "tcp:\/\/0.0.0.0:10656"/' ~/.aura-val1/config/config.toml
-sed -i 's/prometheus_listen_addr = ":26660"/prometheus_listen_addr = ":10660"/' ~/.aura-val1/config/config.toml
+sed -i 's/prometheus_listen_addr = "127.0.0.1:26660"/prometheus_listen_addr = "127.0.0.1:10660"/' ~/.aura-val1/config/config.toml
 
 # app.toml
-sed -i 's/address = "tcp:\/\/localhost:1317"/address = "tcp:\/\/0.0.0.0:10317"/' ~/.aura-val1/config/app.toml
-sed -i 's/address = "localhost:9090"/address = "0.0.0.0:10090"/' ~/.aura-val1/config/app.toml
+sed -i 's/address = "tcp:\/\/localhost:1317"/address = "tcp:\/\/127.0.0.1:10317"/' ~/.aura-val1/config/app.toml
+sed -i 's/address = "localhost:9090"/address = "127.0.0.1:10090"/' ~/.aura-val1/config/app.toml
 ```
+
+> Security note: For the public testnet, keep RPC/REST/gRPC bound to localhost
+> on the validator hosts and expose them through the reverse proxy only.
+> If you must bind to 0.0.0.0 for internal use, restrict access via firewall
+> rules and do not expose validator ports directly to the Internet.
 
 ### 2.3 Configure Validator 2 (aura-testnet)
 ```bash
 # config.toml
-sed -i 's/laddr = "tcp:\/\/127.0.0.1:26657"/laddr = "tcp:\/\/0.0.0.0:10757"/' ~/.aura-val2/config/config.toml
+sed -i 's/laddr = "tcp:\/\/127.0.0.1:26657"/laddr = "tcp:\/\/127.0.0.1:10757"/' ~/.aura-val2/config/config.toml
 sed -i 's/laddr = "tcp:\/\/0.0.0.0:26656"/laddr = "tcp:\/\/0.0.0.0:10756"/' ~/.aura-val2/config/config.toml
-sed -i 's/prometheus_listen_addr = ":26660"/prometheus_listen_addr = ":10760"/' ~/.aura-val2/config/config.toml
+sed -i 's/prometheus_listen_addr = "127.0.0.1:26660"/prometheus_listen_addr = "127.0.0.1:10760"/' ~/.aura-val2/config/config.toml
 
 # app.toml
-sed -i 's/address = "tcp:\/\/localhost:1317"/address = "tcp:\/\/0.0.0.0:10417"/' ~/.aura-val2/config/app.toml
-sed -i 's/address = "localhost:9090"/address = "0.0.0.0:10190"/' ~/.aura-val2/config/app.toml
+sed -i 's/address = "tcp:\/\/localhost:1317"/address = "tcp:\/\/127.0.0.1:10417"/' ~/.aura-val2/config/app.toml
+sed -i 's/address = "localhost:9090"/address = "127.0.0.1:10190"/' ~/.aura-val2/config/app.toml
 ```
 
 ### 2.4 Get Node IDs and Configure Peers
@@ -139,13 +144,13 @@ scp ~/.aura-val3/config/priv_validator_key.json services-testnet:~/.aura-val3/co
 ssh services-testnet
 
 # config.toml
-sed -i 's/laddr = "tcp:\/\/127.0.0.1:26657"/laddr = "tcp:\/\/0.0.0.0:10857"/' ~/.aura-val3/config/config.toml
+sed -i 's/laddr = "tcp:\/\/127.0.0.1:26657"/laddr = "tcp:\/\/127.0.0.1:10857"/' ~/.aura-val3/config/config.toml
 sed -i 's/laddr = "tcp:\/\/0.0.0.0:26656"/laddr = "tcp:\/\/0.0.0.0:10856"/' ~/.aura-val3/config/config.toml
-sed -i 's/prometheus_listen_addr = ":26660"/prometheus_listen_addr = ":10860"/' ~/.aura-val3/config/config.toml
+sed -i 's/prometheus_listen_addr = "127.0.0.1:26660"/prometheus_listen_addr = "127.0.0.1:10860"/' ~/.aura-val3/config/config.toml
 
 # app.toml
-sed -i 's/address = "tcp:\/\/localhost:1317"/address = "tcp:\/\/0.0.0.0:10517"/' ~/.aura-val3/config/app.toml
-sed -i 's/address = "localhost:9090"/address = "0.0.0.0:10290"/' ~/.aura-val3/config/app.toml
+sed -i 's/address = "tcp:\/\/localhost:1317"/address = "tcp:\/\/127.0.0.1:10517"/' ~/.aura-val3/config/app.toml
+sed -i 's/address = "localhost:9090"/address = "127.0.0.1:10290"/' ~/.aura-val3/config/app.toml
 
 # Get node ID
 VAL3_ID=$(~/.aura/cosmovisor/genesis/bin/aurad tendermint show-node-id --home ~/.aura-val3)
@@ -200,13 +205,13 @@ scp ~/.aura-val1/config/genesis.json services-testnet:~/.aura-val4/config/
 ssh services-testnet
 
 # config.toml
-sed -i 's/laddr = "tcp:\/\/127.0.0.1:26657"/laddr = "tcp:\/\/0.0.0.0:10957"/' ~/.aura-val4/config/config.toml
+sed -i 's/laddr = "tcp:\/\/127.0.0.1:26657"/laddr = "tcp:\/\/127.0.0.1:10957"/' ~/.aura-val4/config/config.toml
 sed -i 's/laddr = "tcp:\/\/0.0.0.0:26656"/laddr = "tcp:\/\/0.0.0.0:10956"/' ~/.aura-val4/config/config.toml
-sed -i 's/prometheus_listen_addr = ":26660"/prometheus_listen_addr = ":10960"/' ~/.aura-val4/config/config.toml
+sed -i 's/prometheus_listen_addr = "127.0.0.1:26660"/prometheus_listen_addr = "127.0.0.1:10960"/' ~/.aura-val4/config/config.toml
 
 # app.toml
-sed -i 's/address = "tcp:\/\/localhost:1317"/address = "tcp:\/\/0.0.0.0:10617"/' ~/.aura-val4/config/app.toml
-sed -i 's/address = "localhost:9090"/address = "0.0.0.0:10390"/' ~/.aura-val4/config/app.toml
+sed -i 's/address = "tcp:\/\/localhost:1317"/address = "tcp:\/\/127.0.0.1:10617"/' ~/.aura-val4/config/app.toml
+sed -i 's/address = "localhost:9090"/address = "127.0.0.1:10390"/' ~/.aura-val4/config/app.toml
 
 # Get node ID
 VAL4_ID=$(~/.aura/cosmovisor/genesis/bin/aurad tendermint show-node-id --home ~/.aura-val4)

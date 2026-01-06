@@ -101,8 +101,8 @@ curl -L https://artifacts.aurablockchain.org/snapshots/aura-testnet-1-pruned-lat
 ## Peers
 
 ```
-575fa6d80a2740df7e1ef4111c1a9d394f23b73f@158.69.119.76:26656
-4f3f81bcbdf15ec836b899c1a0982f02a2603f5d@139.99.149.160:26656
+02b1374b69dc8ff1dd75d92acf56bec76a29d5c9@testnet-rpc.aurablockchain.org:10656
+d8ec2ae6a61262fe36f129f0931c49039b087e9e@testnet-rpc.aurablockchain.org:10756
 ```
 
 ## Quick Start
@@ -151,7 +151,7 @@ aurad version
 ### Configure Peers
 
 ```bash
-PEERS="575fa6d80a2740df7e1ef4111c1a9d394f23b73f@158.69.119.76:26656,4f3f81bcbdf15ec836b899c1a0982f02a2603f5d@139.99.149.160:26656"
+PEERS="02b1374b69dc8ff1dd75d92acf56bec76a29d5c9@testnet-rpc.aurablockchain.org:10656,d8ec2ae6a61262fe36f129f0931c49039b087e9e@testnet-rpc.aurablockchain.org:10756"
 sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$PEERS\"/" ~/.aura/config/config.toml
 ```
 

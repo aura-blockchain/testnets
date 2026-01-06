@@ -52,8 +52,8 @@ filter_peers = false
 ###############################################################################
 
 [rpc]
-# RPC listen address
-laddr = "tcp://0.0.0.0:10657"
+# RPC listen address (bind localhost by default; expose via reverse proxy)
+laddr = "tcp://127.0.0.1:10657"
 
 # CORS allowed origins
 cors_allowed_origins = ["*"]
@@ -112,16 +112,16 @@ experimental_close_on_slow_client = false
 
 [p2p]
 # P2P listen address
-laddr = "tcp://0.0.0.0:26656"
+laddr = "tcp://0.0.0.0:10656"
 
 # External address
 external_address = ""
 
 # Seed nodes
-seeds = "575fa6d80a2740df7e1ef4111c1a9d394f23b73f@158.69.119.76:26656"
+seeds = "02b1374b69dc8ff1dd75d92acf56bec76a29d5c9@testnet-rpc.aurablockchain.org:10656,d8ec2ae6a61262fe36f129f0931c49039b087e9e@testnet-rpc.aurablockchain.org:10756"
 
 # Persistent peers
-persistent_peers = "575fa6d80a2740df7e1ef4111c1a9d394f23b73f@158.69.119.76:26656,4f3f81bcbdf15ec836b899c1a0982f02a2603f5d@139.99.149.160:26656"
+persistent_peers = "02b1374b69dc8ff1dd75d92acf56bec76a29d5c9@testnet-rpc.aurablockchain.org:10656,d8ec2ae6a61262fe36f129f0931c49039b087e9e@testnet-rpc.aurablockchain.org:10756"
 
 # UPNP port forwarding
 upnp = false
@@ -316,12 +316,15 @@ psql-conn = ""
 ###                         Instrumentation Configuration                   ###
 ###############################################################################
 
+# -----------------------------------------------------------------------------
+# Instrumentation Configuration
+# -----------------------------------------------------------------------------
 [instrumentation]
 # Prometheus enabled
 prometheus = true
 
-# Prometheus listen address
-prometheus_listen_addr = ":26660"
+# Prometheus listen address (bind localhost by default)
+prometheus_listen_addr = "127.0.0.1:10660"
 
 # Maximum open connections
 max_open_connections = 3

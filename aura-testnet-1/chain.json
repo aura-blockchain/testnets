@@ -9,7 +9,9 @@
   "bech32_prefix": "aura",
   "daemon_name": "aurad",
   "node_home": "$HOME/.aura",
-  "key_algos": ["secp256k1"],
+  "key_algos": [
+    "secp256k1"
+  ],
   "slip44": 118,
   "fees": {
     "fee_tokens": [
@@ -32,7 +34,9 @@
   "codebase": {
     "git_repo": "https://github.com/aura-blockchain/aura",
     "recommended_version": "v0.1.0",
-    "compatible_versions": ["v0.1.0"],
+    "compatible_versions": [
+      "v0.1.0"
+    ],
     "genesis": {
       "genesis_url": "https://artifacts.aurablockchain.org/genesis.json"
     }
@@ -40,20 +44,25 @@
   "peers": {
     "seeds": [
       {
-        "id": "575fa6d80a2740df7e1ef4111c1a9d394f23b73f",
-        "address": "158.69.119.76:26656",
+        "id": "02b1374b69dc8ff1dd75d92acf56bec76a29d5c9",
+        "address": "testnet-rpc.aurablockchain.org:10656",
+        "provider": "AURA Foundation"
+      },
+      {
+        "id": "d8ec2ae6a61262fe36f129f0931c49039b087e9e",
+        "address": "testnet-rpc.aurablockchain.org:10756",
         "provider": "AURA Foundation"
       }
     ],
     "persistent_peers": [
       {
-        "id": "575fa6d80a2740df7e1ef4111c1a9d394f23b73f",
-        "address": "158.69.119.76:26656",
+        "id": "02b1374b69dc8ff1dd75d92acf56bec76a29d5c9",
+        "address": "testnet-rpc.aurablockchain.org:10656",
         "provider": "AURA Foundation"
       },
       {
-        "id": "4f3f81bcbdf15ec836b899c1a0982f02a2603f5d",
-        "address": "139.99.149.160:26656",
+        "id": "d8ec2ae6a61262fe36f129f0931c49039b087e9e",
+        "address": "testnet-rpc.aurablockchain.org:10756",
         "provider": "AURA Foundation"
       }
     ]

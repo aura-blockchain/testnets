@@ -137,4 +137,4 @@ Before restoring, ensure you have enough disk space:
 
 For snapshot-related issues:
 - GitHub: https://github.com/aura-blockchain/testnets/issues
-- Discord: https://discord.gg/aura
+- Discord: https://discord.gg/RwQ8pma6

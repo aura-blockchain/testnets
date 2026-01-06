@@ -192,7 +192,7 @@ For validator access or development contribution:
 
 1. **GitHub** - [Submit a Devnet Access Request](https://github.com/aura-blockchain/testnets/issues/new?template=devnet-access.yml)
 2. **Email** - dev@aurablockchain.org
-3. **Discord** - [discord.gg/aura](https://discord.gg/aura)
+3. **Discord** - [discord.gg/RwQ8pma6](https://discord.gg/RwQ8pma6)
 
 ## Resources
 

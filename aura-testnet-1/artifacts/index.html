@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AURA Testnet Artifacts</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Devnet Banner -->
+    <div class="devnet-banner">
+        <span class="devnet-badge">DEVNET</span>
+        <span>Official artifacts for AURA blockchain testnet. Files are updated automatically.</span>
+    </div>
+
+    <div class="container">
+        <header>
+            <div class="logo">
+                <h1>AURA Testnet Artifacts <span class="network-tag">aura-testnet-1</span></h1>
+                <p class="subtitle">Download binaries, genesis, snapshots, and configuration files</p>
+                <div class="header-links">
+                    <a href="https://testnet-faucet.aurablockchain.org" class="header-link">Faucet</a>
+                    <a href="https://testnet-explorer.aurablockchain.org" class="header-link">Explorer</a>
+                    <a href="https://github.com/aura-blockchain/testnets" class="header-link">GitHub</a>
+                </div>
+            </div>
+            <div class="network-status" id="networkStatus">
+                <span class="status-dot"></span>
+                <span class="status-text">Checking network...</span>
+            </div>
+        </header>
+
+        <main>
+            <!-- Quick Start -->
+            <div class="card">
+                <div class="card-header">
+                    <h2>Quick Start</h2>
+                    <div class="info-badge">
+                        <span id="currentVersion">v0.1.0</span>
+                    </div>
+                </div>
+                <div class="quick-start-grid">
+                    <div class="quick-stat">
+                        <span class="stat-label">Chain ID</span>
+                        <span class="stat-value copy-target" data-copy="aura-testnet-1">aura-testnet-1</span>
+                    </div>
+                    <div class="quick-stat">
+                        <span class="stat-label">Current Block</span>
+                        <span class="stat-value" id="currentBlock">Loading...</span>
+                    </div>
+                    <div class="quick-stat">
+                        <span class="stat-label">Denom</span>
+                        <span class="stat-value copy-target" data-copy="uaura">uaura</span>
+                    </div>
+                    <div class="quick-stat">
+                        <span class="stat-label">Min Gas Price</span>
+                        <span class="stat-value">0.001uaura</span>
+                    </div>
+                </div>
+                <div class="one-liner">
+                    <label>One-liner Install:</label>
+                    <div class="code-block">
+                        <code>curl -sL https://artifacts.aurablockchain.org/install.sh | bash</code>
+                        <button class="copy-btn" data-copy="curl -sL https://artifacts.aurablockchain.org/install.sh | bash">Copy</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Binaries -->
+            <div class="card">
+                <div class="card-header">
+                    <h2>Binaries</h2>
+                    <div class="info-badge">
+                        <span>Pre-compiled</span>
+                    </div>
+                </div>
+                <p class="help-text">Recommended for validators and node operators. Verify checksums before use.</p>
+                <div class="download-table">
+                    <div class="download-row header-row">
+                        <span class="col-file">File</span>
+                        <span class="col-platform">Platform</span>
+                        <span class="col-size">Size</span>
+                        <span class="col-checksum">SHA256</span>
+                        <span class="col-action">Download</span>
+                    </div>
+                    <div class="download-row" id="binary-linux-amd64">
+                        <span class="col-file"><code>aurad-linux-amd64</code></span>
+                        <span class="col-platform">Linux x86_64</span>
+                        <span class="col-size" id="size-linux-amd64">--</span>
+                        <span class="col-checksum"><code class="checksum-short" id="checksum-linux-amd64">--</code></span>
+                        <span class="col-action"><a href="binaries/aurad-linux-amd64" class="download-btn" download="aurad-linux-amd64">Download</a></span>
+                    </div>
+                    <div class="download-row" id="binary-linux-arm64">
+                        <span class="col-file"><code>aurad-linux-arm64</code></span>
+                        <span class="col-platform">Linux ARM64</span>
+                        <span class="col-size" id="size-linux-arm64">--</span>
+                        <span class="col-checksum"><code class="checksum-short" id="checksum-linux-arm64">--</code></span>
+                        <span class="col-action"><a href="binaries/aurad-linux-arm64" class="download-btn" download="aurad-linux-arm64">Download</a></span>
+                    </div>
+                    <div class="download-row" id="binary-darwin-amd64">
+                        <span class="col-file"><code>aurad-darwin-amd64</code></span>
+                        <span class="col-platform">macOS Intel</span>
+                        <span class="col-size" id="size-darwin-amd64">--</span>
+                        <span class="col-checksum"><code class="checksum-short" id="checksum-darwin-amd64">--</code></span>
+                        <span class="col-action"><a href="binaries/aurad-darwin-amd64" class="download-btn" download="aurad-darwin-amd64">Download</a></span>
+                    </div>
+                    <div class="download-row" id="binary-darwin-arm64">
+                        <span class="col-file"><code>aurad-darwin-arm64</code></span>
+                        <span class="col-platform">macOS Apple Silicon</span>
+                        <span class="col-size" id="size-darwin-arm64">--</span>
+                        <span class="col-checksum"><code class="checksum-short" id="checksum-darwin-arm64">--</code></span>
+                        <span class="col-action"><a href="binaries/aurad-darwin-arm64" class="download-btn" download="aurad-darwin-arm64">Download</a></span>
+                    </div>
+                </div>
+                <div class="verify-section">
+                    <label>Verify checksums:</label>
+                    <div class="code-block">
+                        <code>curl -sL https://artifacts.aurablockchain.org/SHA256SUMS | sha256sum -c</code>
+                        <button class="copy-btn" data-copy="curl -sL https://artifacts.aurablockchain.org/SHA256SUMS | sha256sum -c">Copy</button>
+                    </div>
+                    <a href="SHA256SUMS" class="text-link">View SHA256SUMS file</a>
+                </div>
+            </div>
+
+            <!-- Genesis & Network Files -->
+            <div class="card">
+                <div class="card-header">
+                    <h2>Genesis & Network Configuration</h2>
+                </div>
+                <p class="help-text">Essential files for joining the network.</p>
+                <div class="download-table">
+                    <div class="download-row header-row">
+                        <span class="col-file">File</span>
+                        <span class="col-desc">Description</span>
+                        <span class="col-action">Download</span>
+                    </div>
+                    <div class="download-row">
+                        <span class="col-file"><code>genesis.json</code></span>
+                        <span class="col-desc">Genesis file (required)</span>
+                        <span class="col-action"><a href="genesis.json" class="download-btn" download="genesis.json">Download</a></span>
+                    </div>
+                    <div class="download-row">
+                        <span class="col-file"><code>peers.txt</code></span>
+                        <span class="col-desc">Persistent peer list</span>
+                        <span class="col-action"><a href="peers.txt" class="download-btn" download="peers.txt">Download</a></span>
+                    </div>
+                    <div class="download-row">
+                        <span class="col-file"><code>seeds.txt</code></span>
+                        <span class="col-desc">Seed nodes for discovery</span>
+                        <span class="col-action"><a href="seeds.txt" class="download-btn" download="seeds.txt">Download</a></span>
+                    </div>
+                    <div class="download-row">
+                        <span class="col-file"><code>addrbook.json</code></span>
+                        <span class="col-desc">Address book for faster peer discovery</span>
+                        <span class="col-action"><a href="addrbook.json" class="download-btn" download="addrbook.json">Download</a></span>
+                    </div>
+                    <div class="download-row">
+                        <span class="col-file"><code>chain.json</code></span>
+                        <span class="col-desc">Chain registry metadata</span>
+                        <span class="col-action"><a href="chain.json" class="download-btn" download="chain.json">Download</a></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Snapshots -->
+            <div class="card">
+                <div class="card-header">
+                    <h2>Snapshots</h2>
+                    <div class="info-badge">
+                        <span>Updated Daily</span>
+                    </div>
+                </div>
+                <p class="help-text">Pre-synced chain data for fast node setup. Pruned snapshots recommended for validators.</p>
+                <div class="download-table">
+                    <div class="download-row header-row">
+                        <span class="col-file">File</span>
+                        <span class="col-desc">Type</span>
+                        <span class="col-size">Size</span>
+                        <span class="col-height">Block Height</span>
+                        <span class="col-action">Download</span>
+                    </div>
+                    <div class="download-row" id="snapshot-pruned">
+                        <span class="col-file"><code>aura-testnet-1_pruned.tar.lz4</code></span>
+                        <span class="col-desc">Pruned (validators)</span>
+                        <span class="col-size" id="snapshot-pruned-size">--</span>
+                        <span class="col-height" id="snapshot-pruned-height">--</span>
+                        <span class="col-action"><a href="snapshots/aura-testnet-1_pruned_latest.tar.lz4" class="download-btn" download="aura-testnet-1_pruned.tar.lz4">Download</a></span>
+                    </div>
+                    <div class="download-row" id="snapshot-archive">
+                        <span class="col-file"><code>aura-testnet-1_archive.tar.lz4</code></span>
+                        <span class="col-desc">Archive (explorers)</span>
+                        <span class="col-size" id="snapshot-archive-size">--</span>
+                        <span class="col-height" id="snapshot-archive-height">--</span>
+                        <span class="col-action"><a href="snapshots/aura-testnet-1_archive_latest.tar.lz4" class="download-btn" download="aura-testnet-1_archive.tar.lz4">Download</a></span>
+                    </div>
+                </div>
+                <div class="verify-section">
+                    <label>Quick restore:</label>
+                    <div class="code-block">
+                        <code>curl -sL https://artifacts.aurablockchain.org/snapshots/aura-testnet-1_pruned_latest.tar.lz4 | lz4 -dc | tar -xf - -C ~/.aura</code>
+                        <button class="copy-btn" data-copy="curl -sL https://artifacts.aurablockchain.org/snapshots/aura-testnet-1_pruned_latest.tar.lz4 | lz4 -dc | tar -xf - -C ~/.aura">Copy</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- State Sync -->
+            <div class="card">
+                <div class="card-header">
+                    <h2>State Sync</h2>
+                </div>
+                <p class="help-text">Alternative to snapshots. Syncs recent state directly from RPC nodes.</p>
+                <div class="state-sync-config">
+                    <div class="config-item">
+                        <label>RPC Servers:</label>
+                        <div class="code-block">
+                            <code id="statesync-rpc">https://testnet-rpc.aurablockchain.org:443,https://testnet-rpc.aurablockchain.org:443</code>
+                            <button class="copy-btn" data-copy="https://testnet-rpc.aurablockchain.org:443,https://testnet-rpc.aurablockchain.org:443">Copy</button>
+                        </div>
+                    </div>
+                    <div class="config-item">
+                        <label>Trust Height:</label>
+                        <div class="code-block">
+                            <code id="statesync-height">Loading...</code>
+                            <button class="copy-btn" id="copy-height">Copy</button>
+                        </div>
+                    </div>
+                    <div class="config-item">
+                        <label>Trust Hash:</label>
+                        <div class="code-block">
+                            <code id="statesync-hash">Loading...</code>
+                            <button class="copy-btn" id="copy-hash">Copy</button>
+                        </div>
+                    </div>
+                </div>
+                <a href="state_sync.md" class="text-link">View full state sync guide</a>
+            </div>
+
+            <!-- Public Endpoints -->
+            <div class="card">
+                <div class="card-header">
+                    <h2>Public Endpoints</h2>
+                </div>
+                <div class="endpoints-grid">
+                    <div class="endpoint-item">
+                        <span class="endpoint-label">RPC</span>
+                        <code class="copy-target" data-copy="https://testnet-rpc.aurablockchain.org">https://testnet-rpc.aurablockchain.org</code>
+                    </div>
+                    <div class="endpoint-item">
+                        <span class="endpoint-label">REST API</span>
+                        <code class="copy-target" data-copy="https://testnet-api.aurablockchain.org">https://testnet-api.aurablockchain.org</code>
+                    </div>
+                    <div class="endpoint-item">
+                        <span class="endpoint-label">gRPC</span>
+                        <code class="copy-target" data-copy="testnet-grpc.aurablockchain.org:443">testnet-grpc.aurablockchain.org:443</code>
+                    </div>
+                    <div class="endpoint-item">
+                        <span class="endpoint-label">WebSocket</span>
+                        <code class="copy-target" data-copy="wss://testnet-ws.aurablockchain.org/websocket">wss://testnet-ws.aurablockchain.org/websocket</code>
+                    </div>
+                    <div class="endpoint-item">
+                        <span class="endpoint-label">Explorer</span>
+                        <code class="copy-target" data-copy="https://testnet-explorer.aurablockchain.org">https://testnet-explorer.aurablockchain.org</code>
+                    </div>
+                    <div class="endpoint-item">
+                        <span class="endpoint-label">Faucet</span>
+                        <code class="copy-target" data-copy="https://testnet-faucet.aurablockchain.org">https://testnet-faucet.aurablockchain.org</code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Resources -->
+            <div class="card">
+                <div class="card-header">
+                    <h2>Resources</h2>
+                </div>
+                <ul class="notice-list resource-list">
+                    <li><a href="https://github.com/aura-blockchain/testnets" target="_blank">Testnet Repository</a> - Network configuration and guides</li>
+                    <li><a href="https://github.com/aura-blockchain/aura" target="_blank">AURA Core</a> - Source code and releases</li>
+                    <li><a href="https://github.com/aura-blockchain/aura/blob/main/docs/VALIDATORS.md" target="_blank">Validator Guide</a> - How to run a validator</li>
+                    <li><a href="https://discord.gg/RwQ8pma6" target="_blank">Discord</a> - Community support</li>
+                </ul>
+            </div>
+        </main>
+
+        <footer>
+            <div class="footer-links">
+                <a href="https://github.com/aura-blockchain" target="_blank">GitHub</a>
+                <a href="https://github.com/aura-blockchain/testnets" target="_blank">Testnet Docs</a>
+                <a href="https://discord.gg/RwQ8pma6" target="_blank">Discord</a>
+                <a href="https://testnet-explorer.aurablockchain.org" target="_blank">Block Explorer</a>
+                <a href="https://testnet-faucet.aurablockchain.org" target="_blank">Faucet</a>
+            </div>
+            <p class="footer-text">AURA Testnet Artifacts | Chain ID: aura-testnet-1 | For Development Use Only</p>
+        </footer>
+    </div>
+
+    <script src="app.js?v=2"></script>
+</body>
+</html>

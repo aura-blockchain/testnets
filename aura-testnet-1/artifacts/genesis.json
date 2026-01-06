@@ -1,0 +1,1377 @@
+{
+  "app_hash": "",
+  "app_name": "\u003cappd\u003e",
+  "app_state": {
+    "aiassistant": {
+      "assistants": [],
+      "params": {
+        "heartbeat_grace_seconds": "120",
+        "heartbeat_window_seconds": "600",
+        "max_locales": "5",
+        "min_stake": {
+          "amount": "5000000",
+          "denom": "uaura"
+        },
+        "slash_fraction_downtime": "0.020000000000000000",
+        "slash_fraction_misbehavior": "0.100000000000000000"
+      }
+    },
+    "aura_wasm_security": {
+      "codes": [],
+      "contracts": [],
+      "params": {
+        "code_upload_access": {
+          "permission": 3
+        },
+        "instantiate_default_permission": 3,
+        "max_gas_wasm_execution": 10000000,
+        "max_wasm_code_size": 614400,
+        "require_admin_for_migrate": true,
+        "security_analysis_enabled": true
+      },
+      "security_stats": {},
+      "sequences": []
+    },
+    "aurabindings": {
+      "message_stats": {},
+      "query_stats": {}
+    },
+    "auth": {
+      "accounts": [
+        {
+          "@type": "/cosmos.auth.v1beta1.BaseAccount",
+          "account_number": "0",
+          "address": "auratest1w2p7vgvu5nakc83zhlqld846fquhskgul8h0p3",
+          "pub_key": null,
+          "sequence": "0"
+        },
+        {
+          "@type": "/cosmos.auth.v1beta1.BaseAccount",
+          "account_number": "1",
+          "address": "auratest1m3dtvvj0r7cavf64nv299dp5kqr8fu0ud89nfs",
+          "pub_key": null,
+          "sequence": "0"
+        },
+        {
+          "@type": "/cosmos.auth.v1beta1.ModuleAccount",
+          "base_account": {
+            "account_number": "0",
+            "address": "auratest17xpfvakm2amg962yls6f84z3kell8c5l98ztk7",
+            "pub_key": null,
+            "sequence": "0"
+          },
+          "name": "fee_collector",
+          "permissions": []
+        },
+        {
+          "@type": "/cosmos.auth.v1beta1.ModuleAccount",
+          "base_account": {
+            "account_number": "0",
+            "address": "auratest1fl48vsnmsdzcv85q5d2q4z5ajdha8yu3q9gyy5",
+            "pub_key": null,
+            "sequence": "0"
+          },
+          "name": "bonded_tokens_pool",
+          "permissions": [
+            "burner",
+            "staking"
+          ]
+        },
+        {
+          "@type": "/cosmos.auth.v1beta1.ModuleAccount",
+          "base_account": {
+            "account_number": "0",
+            "address": "auratest1tygms3xhhs3yv487phx3dw4a95jn7t7l5954jq",
+            "pub_key": null,
+            "sequence": "0"
+          },
+          "name": "not_bonded_tokens_pool",
+          "permissions": [
+            "burner",
+            "staking"
+          ]
+        }
+      ],
+      "params": {
+        "max_memo_characters": "256",
+        "sig_verify_cost_ed25519": "590",
+        "sig_verify_cost_secp256k1": "1000",
+        "tx_sig_limit": "7",
+        "tx_size_cost_per_byte": "10"
+      }
+    },
+    "bank": {
+      "balances": [
+        {
+          "address": "auratest1fl48vsnmsdzcv85q5d2q4z5ajdha8yu3q9gyy5",
+          "coins": [
+            {
+              "amount": "90000000000",
+              "denom": "stake"
+            }
+          ]
+        },
+        {
+          "address": "auratest1m3dtvvj0r7cavf64nv299dp5kqr8fu0ud89nfs",
+          "coins": [
+            {
+              "amount": "100000000000000",
+              "denom": "uaura"
+            }
+          ]
+        },
+        {
+          "address": "auratest1tygms3xhhs3yv487phx3dw4a95jn7t7l5954jq",
+          "coins": []
+        },
+        {
+          "address": "auratest1w2p7vgvu5nakc83zhlqld846fquhskgul8h0p3",
+          "coins": [
+            {
+              "amount": "10000000000",
+              "denom": "stake"
+            },
+            {
+              "amount": "1000000000000",
+              "denom": "uaura"
+            }
+          ]
+        }
+      ],
+      "denom_metadata": [],
+      "params": {
+        "default_send_enabled": true,
+        "send_enabled": []
+      },
+      "send_enabled": [],
+      "supply": [
+        {
+          "amount": "100000000000",
+          "denom": "stake"
+        },
+        {
+          "amount": "101000000000000",
+          "denom": "uaura"
+        }
+      ]
+    },
+    "bridge": {
+      "chain_configs": [],
+      "cross_chain_swaps": [],
+      "params": {
+        "bridge_fee_basis_points": "30",
+        "enabled": true,
+        "max_transfer_amount": "1000000000",
+        "min_confirmations": "3",
+        "validator_threshold_percentage": "67"
+      },
+      "processed_source_hashes": [],
+      "relayer_stats": [],
+      "shared_identities": [],
+      "transfers": [],
+      "validators": [],
+      "wrapped_tokens": []
+    },
+    "compliance": {
+      "aml_profiles": [],
+      "gdpr_consents": [],
+      "gdpr_requests": [],
+      "kyc_history": [],
+      "kyc_records": [],
+      "monitoring_rules": [],
+      "params": {
+        "aml_profile_query_limit": "200",
+        "approved_kyc_providers": [],
+        "blocked_jurisdictions": [
+          "KP",
+          "IR",
+          "SY",
+          "CU",
+          "RU",
+          "BY"
+        ],
+        "data_retention_days": "0",
+        "default_query_limit": "1000",
+        "gdpr_enabled": false,
+        "kyc_expiry_days": "365",
+        "kyc_required": false,
+        "kyc_verification_limit": "50",
+        "minimum_kyc_level": "KYC_LEVEL_UNSPECIFIED",
+        "processing_purposes": [],
+        "rate_limit_window_seconds": "3600",
+        "sanctions_lists": [],
+        "sanctions_screening_enabled": false,
+        "sanctions_screening_limit": "100",
+        "screening_cache_hours": "24",
+        "single_transaction_limit": "100000",
+        "structuring_threshold_count": 10,
+        "tax_jurisdictions": [],
+        "tax_report_generation_limit": "10",
+        "tax_reporting_enabled": false,
+        "tax_year_end": "",
+        "transaction_monitoring_enabled": false,
+        "velocity_limit_24h": "1000000"
+      },
+      "sanctions_results": [],
+      "suspicious_activities": [],
+      "tax_reports": [],
+      "transaction_alerts": []
+    },
+    "confidencescore": {
+      "completions": [],
+      "history": [],
+      "params": {
+        "appeal_deposit": "1000uaura",
+        "arena_focus_threshold": "5000",
+        "arena_multipliers_bps": {
+          "3000": "11000",
+          "4000": "12000",
+          "5000": "15000"
+        },
+        "degradation_rate_per_year": "0",
+        "high_assurance_threshold": "15000",
+        "jackpot_multipliers_bps": [
+          "50000",
+          "250000"
+        ],
+        "jackpot_odds": [
+          "100",
+          "1000"
+        ],
+        "max_irs_per_day": "10",
+        "max_irs_per_hour": "3",
+        "poi_rewards_enabled": true,
+        "slash_percentage": "50",
+        "staleness_enabled": false,
+        "user_reward_split_percent": "70",
+        "velocity_bonus_days": [
+          "7",
+          "30"
+        ],
+        "velocity_bonus_enabled": true,
+        "velocity_bonus_multipliers_bps": [
+          "12500",
+          "11000"
+        ],
+        "verification_threshold": "10000"
+      },
+      "slash_records": [],
+      "user_records": []
+    },
+    "consensus": {},
+    "contractregistry": {
+      "contracts": [],
+      "metrics": [],
+      "params": {
+        "audit_warning_days": "365",
+        "default_max_gas": "10000000",
+        "default_rate_limit": "1000",
+        "max_contracts_per_creator": "100",
+        "open_registration": true,
+        "require_compliance_config": false,
+        "require_metadata": false,
+        "require_security_policy": false
+      }
+    },
+    "cryptography": {
+      "certificate_pins": [],
+      "key_rotation_schedules": [],
+      "key_stretching_configs": [],
+      "params": {
+        "certificate_pin_validity_days": 365,
+        "default_rotation_interval_days": 90,
+        "enable_auto_rotation": true,
+        "enforce_certificate_pinning": true,
+        "max_threshold_participants": 100,
+        "min_argon2_iterations": 3,
+        "min_argon2_memory_kb": 65536,
+        "min_entropy_bits": 256,
+        "min_key_length_bits": 256,
+        "min_pbkdf2_iterations": 100000,
+        "min_salt_length_bytes": 16,
+        "min_threshold_participants": 2
+      },
+      "quantum_resistant_keys": [],
+      "random_sources": [],
+      "secure_enclaves": [],
+      "threshold_schemes": [],
+      "zk_proof_configs": [],
+      "zk_proof_verifications": []
+    },
+    "dataregistry": {},
+    "dex": {
+      "liquidity_pools": [],
+      "market_prices": [],
+      "order_commitments": [],
+      "orderbooks": [],
+      "params": {
+        "batch_execution_enabled": true,
+        "batch_execution_interval": "5",
+        "bonding_curve_enabled": true,
+        "buyback_burn_enabled": true,
+        "buyback_percent": "100",
+        "commit_reveal_threshold": "10000000000",
+        "commit_reveal_window": "60",
+        "governance_fallback_price": "0.100000000000000000",
+        "ir_boost_enabled": true,
+        "ir_boost_percent": "40",
+        "max_slippage_bps": "10000",
+        "min_liquidity_tiers": [],
+        "min_swap_amount": "1000000",
+        "protocol_fee": "0.000500000000000000",
+        "trading_fee": "0.003000000000000000"
+      },
+      "pool_creation_records": [],
+      "queued_orders": [],
+      "swap_orders": [],
+      "swap_stats": []
+    },
+    "distribution": {
+      "delegator_starting_infos": [],
+      "delegator_withdraw_infos": [],
+      "fee_pool": {
+        "community_pool": []
+      },
+      "outstanding_rewards": [],
+      "params": {
+        "base_proposer_reward": "0.000000000000000000",
+        "bonus_proposer_reward": "0.000000000000000000",
+        "community_tax": "0.020000000000000000",
+        "withdraw_addr_enabled": true
+      },
+      "previous_proposer": "",
+      "validator_accumulated_commissions": [],
+      "validator_current_rewards": [],
+      "validator_historical_rewards": [],
+      "validator_slash_events": []
+    },
+    "economics": {
+      "deposits": [],
+      "inflation_metrics": null,
+      "last_large_tx_times": {},
+      "liquidity_mining_stats": null,
+      "mev_stats": null,
+      "next_proposal_id": "1",
+      "next_treasury_tx_id": "1",
+      "next_vesting_schedule_id": "1",
+      "next_vote_lock_id": "1",
+      "params": {
+        "fees": {
+          "base_fee": "1000",
+          "dynamic_fees_enabled": true,
+          "fee_adjustment_speed": "1000",
+          "fee_burn_percentage": "1000",
+          "max_fee_multiplier": "50000",
+          "min_fee_multiplier": "5000",
+          "min_gas_price": "1.000000000000000000",
+          "target_block_utilization": "5000"
+        },
+        "governance": {
+          "emergency_quorum": "6667",
+          "emergency_threshold": "6667",
+          "emergency_voting_period": "86400s",
+          "execution_delay": "86400s",
+          "lock_multiplier_per_year": "10000",
+          "max_deposit_period": "604800s",
+          "max_lock_duration": "31536000s",
+          "min_deposit": [],
+          "min_lock_duration": "604800s",
+          "quadratic_voting_enabled": false,
+          "quorum": "3333",
+          "reveal_period": "86400s",
+          "secret_ballot_enabled": false,
+          "snapshot_lookback_blocks": "100",
+          "snapshot_voting_enabled": false,
+          "threshold": "5000",
+          "veto_threshold": "3333",
+          "vote_locking_enabled": true,
+          "voting_period": "604800s"
+        },
+        "liquidity_mining": {
+          "enabled": true,
+          "epoch_duration_blocks": "100000",
+          "ir_verified_multiplier": "15000",
+          "max_rewards_per_epoch": "1000000000000",
+          "total_rewards_allocated": "100000000000000"
+        },
+        "mev": {
+          "auction_duration": "10s",
+          "burn_percentage": "1000",
+          "enabled": true,
+          "max_frontrun_penalty": "1000000",
+          "strategy": "MEV_STRATEGY_PROPORTIONAL_TO_STAKE",
+          "treasury_percentage": "1000",
+          "user_redistribution_percentage": "4000",
+          "validator_percentage": "4000"
+        },
+        "tokenomics": {
+          "inflation_alert_threshold": "100",
+          "inflation_check_interval": "10000",
+          "max_inflation_rate": "1000",
+          "max_supply": "1000000000000000",
+          "min_inflation_rate": "200",
+          "target_inflation_rate": "500"
+        },
+        "treasury": {
+          "authorized_signers": [],
+          "burn_percentage": "0",
+          "community_pool_percentage": "2000",
+          "multisig_threshold": 2,
+          "spending_limit": "1000000",
+          "timelock_duration": "86400s",
+          "treasury_address": ""
+        },
+        "vesting": {
+          "allow_early_unlock": false,
+          "early_unlock_penalty": "2000",
+          "max_vesting_duration": "126144000s",
+          "min_cliff_duration": "0s",
+          "min_vesting_duration": "2592000s"
+        },
+        "whale_protection": {
+          "cooldown_period": "3600s",
+          "daily_transfer_limit": "5000000000000",
+          "enabled": true,
+          "exempted_addresses": [],
+          "large_tx_threshold": "100",
+          "max_holding_percentage": "500",
+          "max_single_transfer": "1000000000000"
+        }
+      },
+      "pending_treasury_txs": [],
+      "proposals": [],
+      "user_mev_balances": {},
+      "vesting_schedules": [],
+      "vote_delegations": [],
+      "vote_locks": [],
+      "votes": []
+    },
+    "economicsecurity": {
+      "inflation_alerts": [],
+      "large_tx_records": [],
+      "last_large_tx_times": {},
+      "params": {
+        "dynamic_fees": {
+          "adjustment_speed": "100",
+          "base_fee": "100",
+          "current_multiplier": "10000",
+          "enabled": true,
+          "max_multiplier": "20000",
+          "min_multiplier": "5000",
+          "recent_utilization": [],
+          "target_utilization": "7000",
+          "utilization_window": "20"
+        },
+        "governance": {
+          "lock_multiplier_per_year": "10000",
+          "max_lock_duration": "31536000",
+          "min_lock_duration": "604800",
+          "min_proposal_stake": "1000",
+          "pass_threshold_percentage": "5000",
+          "proposal_deposit": "1000",
+          "quadratic_voting_enabled": false,
+          "quorum_percentage": "3333",
+          "vote_locking_enabled": true
+        },
+        "inflation_alert_threshold": "100",
+        "inflation_check_interval": "10000",
+        "liquidity_mining": {
+          "current_epoch": "0",
+          "enabled": true,
+          "epoch_duration_blocks": "10000",
+          "ir_verified_multiplier": "15000",
+          "last_distribution_height": "0",
+          "max_rewards_per_epoch": "1000",
+          "total_rewards_allocated": "1000000",
+          "total_rewards_distributed": "0"
+        },
+        "mev": {
+          "burn_percentage": "0",
+          "enabled": true,
+          "strategy": "MEV_STRATEGY_UNSPECIFIED",
+          "total_mev_captured": "0",
+          "total_mev_redistributed": "0",
+          "treasury_percentage": "1000",
+          "user_redistribution_percentage": "4000",
+          "validator_percentage": "5000"
+        },
+        "tokenomics": {
+          "circulating_supply": "100000000",
+          "inflation_rate": "500",
+          "last_inflation_adjustment": "0001-01-01T00:00:00Z",
+          "last_inflation_check": "0001-01-01T00:00:00Z",
+          "max_inflation_rate": "2000",
+          "max_supply": "1000000000",
+          "min_inflation_rate": "100",
+          "target_inflation_rate": "500"
+        },
+        "transfer_tax": {
+          "base_tax_rate": "10",
+          "burn_percentage": "5000",
+          "dynamic_adjustment_enabled": false,
+          "enabled": false,
+          "exempted_addresses": [],
+          "max_tax_rate": "100",
+          "min_tax_rate": "1",
+          "redistribute_percentage": "0",
+          "tax_recipient": "",
+          "treasury_percentage": "5000"
+        },
+        "treasury_multisig": {
+          "signers": [],
+          "spending_limit": "10000",
+          "threshold": 3,
+          "timelock_duration": "604800",
+          "treasury_address": ""
+        },
+        "whale_protection": {
+          "enabled": true,
+          "exempted_addresses": [],
+          "large_tx_cooldown": "86400",
+          "large_tx_threshold": "100",
+          "max_holding_percentage": "500",
+          "max_tx_percentage": "100"
+        }
+      },
+      "pending_treasury_txs": [],
+      "user_mev_balances": {},
+      "vesting_schedules": [],
+      "vote_locks": []
+    },
+    "genutil": {
+      "gen_txs": []
+    },
+    "governance": {
+      "deposits": [],
+      "params": {
+        "category_params": {
+          "PROPOSAL_CATEGORY_CONSTITUTION": {
+            "execution_delay": "172800s",
+            "min_deposit": "10000000stake",
+            "quorum": "0.667",
+            "threshold": "0.750",
+            "veto_threshold": "0.334",
+            "voting_period": "604800s"
+          },
+          "PROPOSAL_CATEGORY_EMERGENCY": {
+            "execution_delay": "0s",
+            "min_deposit": "10000000stake",
+            "quorum": "0.600",
+            "threshold": "0.750",
+            "veto_threshold": "0.334",
+            "voting_period": "86400s"
+          },
+          "PROPOSAL_CATEGORY_PARAMETER_CHANGE": {
+            "execution_delay": "172800s",
+            "min_deposit": "10000000stake",
+            "quorum": "0.334",
+            "threshold": "0.50",
+            "veto_threshold": "0.334",
+            "voting_period": "604800s"
+          },
+          "PROPOSAL_CATEGORY_SOFTWARE_UPGRADE": {
+            "execution_delay": "172800s",
+            "min_deposit": "10000000stake",
+            "quorum": "0.334",
+            "threshold": "0.50",
+            "veto_threshold": "0.334",
+            "voting_period": "604800s"
+          },
+          "PROPOSAL_CATEGORY_SPENDING": {
+            "execution_delay": "172800s",
+            "min_deposit": "10000000stake",
+            "quorum": "0.334",
+            "threshold": "0.50",
+            "veto_threshold": "0.334",
+            "voting_period": "604800s"
+          },
+          "PROPOSAL_CATEGORY_TEXT": {
+            "execution_delay": "172800s",
+            "min_deposit": "10000000stake",
+            "quorum": "0.334",
+            "threshold": "0.50",
+            "veto_threshold": "0.334",
+            "voting_period": "604800s"
+          }
+        },
+        "emergency_quorum": "0.50",
+        "emergency_threshold": "0.667",
+        "emergency_voting_period": "86400s",
+        "execution_delay": "172800s",
+        "max_deposit_period": "604800s",
+        "min_deposit": "10000000stake",
+        "quorum": "0.334",
+        "require_token_lock": false,
+        "reveal_period": "86400s",
+        "secret_ballot_enabled": false,
+        "snapshot_lookback_blocks": "100",
+        "snapshot_voting_enabled": false,
+        "threshold": "0.50",
+        "token_lock_duration": "604800s",
+        "veto_authorized_addresses": [],
+        "veto_cosigners_required": 3,
+        "veto_threshold": "0.334",
+        "voting_period": "604800s"
+      },
+      "proposals": [],
+      "starting_proposal_id": "0",
+      "token_locks": [],
+      "veto_requests": [],
+      "vote_delegations": [],
+      "votes": []
+    },
+    "identity": {
+      "audit_logs": [],
+      "change_history": [],
+      "change_requests": [],
+      "credential_revocations": [],
+      "did_key_histories": [],
+      "did_key_rotations": [],
+      "emergency_admins": [],
+      "identity_changes_suspended": false,
+      "identity_records": [],
+      "multisig_proposals": [],
+      "multisig_wallets": [],
+      "next_audit_log_id": "1",
+      "next_change_request_id": "0",
+      "params": {
+        "auth": {
+          "default_requests_per_day": "86400",
+          "default_requests_per_hour": "3600",
+          "default_requests_per_minute": "60",
+          "default_timelock_delay_seconds": "3600",
+          "enable_audit_logging": true,
+          "enable_rbac": true,
+          "max_roles_per_account": 10,
+          "multisig_proposal_expiry_seconds": "604800",
+          "session_timeout": "0s"
+        },
+        "change": {
+          "assistant_slash_on_false_positive": true,
+          "key_rotation_grace_period_seconds": "86400",
+          "max_requests_per_wallet_per_month": 10,
+          "min_confidence_after_change": 50,
+          "staleness_height_threshold": "100000",
+          "staleness_investigator_chain": ""
+        }
+      },
+      "rate_limits": [],
+      "role_assignments": [],
+      "roles": [],
+      "sessions": [],
+      "time_locked_actions": [],
+      "validator_rotations": []
+    },
+    "identitychange": {
+      "history": [],
+      "params": {
+        "assistant_slash_on_false_positive": true,
+        "max_requests_per_wallet_per_month": 5,
+        "min_confidence_after_change": 30,
+        "staleness_height_threshold": "100000",
+        "staleness_investigator_chain": "aura-mainnet"
+      },
+      "records": [],
+      "requests": [],
+      "suspended": false
+    },
+    "incidentresponse": {
+      "incidents": [],
+      "next_incident_id": 1,
+      "params": {
+        "backup_validators": {
+          "auto_failover": true,
+          "backup_validators": null,
+          "enabled": true,
+          "failover_threshold": 3,
+          "heartbeat_interval": 30000000000,
+          "last_health_check": "0001-01-01T00:00:00Z",
+          "primary_validators": null
+        },
+        "cold_storage": {
+          "enabled": true,
+          "max_hot_wallet_ratio": 0.2,
+          "minimum_balance": "50000000000",
+          "multisig_signers": [
+            "signer1",
+            "signer2",
+            "signer3",
+            "signer4",
+            "signer5"
+          ],
+          "multisig_threshold": 5,
+          "time_locked_until": "0001-01-01T00:00:00Z"
+        },
+        "communication": {
+          "enabled": true,
+          "escalation_contacts": null,
+          "notification_channels": null,
+          "status_page_url": "",
+          "update_interval": 1800000000000
+        },
+        "disaster_recovery": {
+          "backup_interval": 21600000000000,
+          "backup_locations": [
+            "s3://default-backup"
+          ],
+          "enabled": true,
+          "key_backups": false,
+          "last_backup_time": "0001-01-01T00:00:00Z",
+          "rpo": 900000000000,
+          "rto": 7200000000000,
+          "snapshot_retention": 7,
+          "state_backups": true,
+          "validator_backups": true
+        },
+        "emergency_pause_enabled": true,
+        "global_daily_limit": "1000000000",
+        "global_max_hot_wallet": "10000000000",
+        "hot_wallet_limits_enabled": true,
+        "incident_response_team": [],
+        "insurance": {
+          "auto_claim": false,
+          "claim_endpoint": "",
+          "claim_threshold": "1000000000000",
+          "coverage_amount": "",
+          "enabled": false,
+          "policy_number": "",
+          "provider": "",
+          "required_signers": null
+        },
+        "max_pause_duration": 86400000000000,
+        "pause_authorized_keys": [
+          "admin1",
+          "admin2",
+          "admin3"
+        ],
+        "pause_required_signers": 3
+      },
+      "pause_state": {
+        "estimated_resume": "0001-01-01T00:00:00Z",
+        "is_paused": false,
+        "pause_level": "none",
+        "paused_at": "0001-01-01T00:00:00Z"
+      },
+      "wallet_limits": []
+    },
+    "inclusionroutines": {
+      "irs": [],
+      "params": {
+        "default_rate_limit_hour": 5,
+        "max_ir_per_locale": 100,
+        "min_governance_deposit": "10000000uaura",
+        "suspension_fee": "1000000uaura"
+      },
+      "prerequisites": [],
+      "rate_limits": []
+    },
+    "monitoring": {
+      "params": {
+        "alert_retention_period": 2592000000000000,
+        "anomaly_threshold": 0.75,
+        "congestion_threshold": 0.8,
+        "critical_alert_cooldown": 300000000000,
+        "enable_alerts": true,
+        "enable_anomaly_detection": true,
+        "enable_explorer_integration": true,
+        "enable_failed_tx_analysis": true,
+        "enable_gas_price_tracking": true,
+        "enable_log_aggregation": true,
+        "enable_network_health_monitoring": true,
+        "enable_prometheus_metrics": true,
+        "enable_siem": true,
+        "enable_soc": true,
+        "enable_transaction_monitoring": true,
+        "enable_tvl_monitoring": true,
+        "enable_validator_monitoring": true,
+        "explorer_endpoint": "http://localhost:8080",
+        "explorer_sync_interval": 10000000000,
+        "failed_tx_analysis_window": 3600000000000,
+        "failed_tx_pattern_threshold": 10,
+        "gas_price_check_interval": 60000000000,
+        "gas_price_history_size": 1440,
+        "gas_price_spike_threshold": 2,
+        "large_transaction_threshold": 1000000,
+        "log_retention_period": 1209600000000000,
+        "max_consecutive_misses": 100,
+        "max_log_entries_per_module": 100000,
+        "metrics_retention_period": 604800000000000,
+        "ml_model_update_interval": 86400000000000,
+        "network_health_check_interval": 30000000000,
+        "prometheus_port": 9090,
+        "require_soc_approval": false,
+        "siem_retention_period": 7776000000000000,
+        "soc_rotation_interval": 28800000000000,
+        "threat_level_threshold": 7,
+        "tvl_change_alert_threshold": 0.2,
+        "tvl_check_interval": 300000000000,
+        "tvl_history_size": 288,
+        "validator_uptime_window": 10000
+      }
+    },
+    "networksecurity": {
+      "fork_alerts": [],
+      "params": {
+        "connection": {
+          "connection_timeout": "60s",
+          "max_connections_per_ip": 5,
+          "max_inbound_connections": 50,
+          "max_outbound_connections": 10,
+          "min_peer_diversity": 3,
+          "trusted_peers_only": false
+        },
+        "fork_detection": {
+          "confirmation_depth": "6",
+          "enable_auto_resolution": false,
+          "enable_detection": true,
+          "height_diff_threshold": "100"
+        },
+        "gossip": {
+          "enable_redundancy_filter": true,
+          "max_fanout": 10,
+          "max_message_size": "1048576",
+          "message_ttl": "300s",
+          "verify_signatures": true
+        },
+        "mempool": {
+          "enable_priority_fees": true,
+          "eviction_policy": "oldest",
+          "max_bytes": "10485760",
+          "max_size": "5000",
+          "max_txs_per_account": 100,
+          "min_priority_fee": "1000"
+        },
+        "partition_detection": {
+          "check_interval": "60s",
+          "enable_detection": true,
+          "min_connected_peers": 5,
+          "partition_threshold": 3
+        },
+        "rate_limit": {
+          "ban_duration": "3600s",
+          "bandwidth_limit_per_peer": "1048576",
+          "burst_size": "200",
+          "max_requests_per_second": "100",
+          "window_duration": "60s"
+        },
+        "reputation": {
+          "decay_rate": "1",
+          "enable_tracking": true,
+          "good_behavior_reward": "5",
+          "initial_score": "50",
+          "max_score": "100",
+          "min_score_to_connect": "0",
+          "misbehavior_penalty": "10"
+        }
+      },
+      "partition_alerts": [],
+      "rate_limits": [],
+      "reputations": [],
+      "trusted_peers": []
+    },
+    "params": {},
+    "prevalidation": {
+      "metrics": {
+        "avg_time_savings_ms": "0",
+        "control_group": null,
+        "current_hour": null,
+        "last_24_hours": [],
+        "metrics_by_type": {},
+        "overall_cache_hit_rate": "0",
+        "total_cache_hits": "0",
+        "total_cache_misses": "0",
+        "total_energy_saved_kwh": "0",
+        "total_executed": "0",
+        "total_expired": "0",
+        "total_pre_validations": "0",
+        "total_time_saved_ms": "0"
+      },
+      "params": {
+        "auto_scaling_config": {
+          "cooldown_minutes": 0,
+          "enabled": false,
+          "evaluation_period_hours": 0,
+          "initial_amounts": {},
+          "max_amounts": {},
+          "min_cache_hit_rate": "0",
+          "scale_down_factor": "0",
+          "scale_up_factor": "0",
+          "target_cache_hit_rate": "0"
+        },
+        "cache_strategy": "CACHE_STRATEGY_LRU",
+        "control_group_percentage": "10.000000000000000000",
+        "detailed_logging": false,
+        "enabled": true,
+        "encryption_algorithm": "AES-256-GCM",
+        "energy_cost_per_execution_kwh": "0.005000000000000000",
+        "energy_cost_per_validation_kwh": "0.001000000000000000",
+        "expiry_hours": 24,
+        "max_cache_size": "10000",
+        "max_validation_attempts": 3,
+        "metrics_enabled": true,
+        "min_confidence_score": "50",
+        "retry_delay_seconds": 5,
+        "scheduler_config": {
+          "allow_peak_hours": false,
+          "enabled": false,
+          "max_per_run": "0",
+          "off_peak_hours": [],
+          "run_interval_minutes": 0,
+          "timezone": ""
+        }
+      },
+      "pre_validated_transactions": [],
+      "templates": []
+    },
+    "privacy": {
+      "params": {
+        "enable_confidential_transactions": true,
+        "enable_mixing": true,
+        "enable_network_privacy": true,
+        "enable_ring_signatures": true,
+        "enable_stealth_addresses": true,
+        "enable_zk_proofs": true,
+        "max_ring_size": 16,
+        "min_mixing_participants": 5,
+        "min_ring_size": 3,
+        "mixing_fee": "1000",
+        "zk_proof_verification_cost": 10000
+      }
+    },
+    "security": {
+      "cryptography": {
+        "key_rotation_schedules": [],
+        "quantum_resistant_keys": [],
+        "threshold_schemes": [],
+        "zk_proof_configs": []
+      },
+      "incident_response": {
+        "audit_logs": [],
+        "incidents": [],
+        "next_incident_id": "0",
+        "response_actions": []
+      },
+      "network_security": {
+        "fork_alerts": [],
+        "partition_alerts": [],
+        "rate_limits": [],
+        "reputations": [],
+        "trusted_peers": []
+      },
+      "params": {
+        "crypto": {
+          "certificate_pin_validity_days": 0,
+          "default_rotation_interval_days": 0,
+          "enable_auto_rotation": false,
+          "enforce_certificate_pinning": false,
+          "max_threshold_participants": 0,
+          "min_argon2_iterations": 0,
+          "min_argon2_memory_kb": 0,
+          "min_entropy_bits": 0,
+          "min_key_length_bits": 0,
+          "min_pbkdf2_iterations": 0,
+          "min_salt_length_bytes": 0,
+          "min_threshold_participants": 0
+        },
+        "incident": {
+          "audit_retention_days": "0",
+          "auto_response_actions": [],
+          "critical_incident_threshold": 0,
+          "detection_interval": "0s",
+          "enable_audit_trail": false,
+          "enable_auto_detection": false,
+          "enable_auto_response": false,
+          "enable_email_alerts": false,
+          "enable_sms_alerts": false,
+          "high_incident_threshold": 0,
+          "medium_incident_threshold": 0,
+          "notification_endpoints": []
+        },
+        "network": {
+          "connection": {
+            "connection_timeout": "0s",
+            "max_connections_per_ip": 0,
+            "max_inbound_connections": 0,
+            "max_outbound_connections": 0,
+            "min_peer_diversity": 0,
+            "trusted_peers_only": false
+          },
+          "fork_detection": {
+            "confirmation_depth": "0",
+            "enable_auto_resolution": false,
+            "enable_detection": false,
+            "height_diff_threshold": "0"
+          },
+          "gossip": {
+            "enable_redundancy_filter": false,
+            "max_fanout": 0,
+            "max_message_size": "0",
+            "message_ttl": "0s",
+            "verify_signatures": false
+          },
+          "mempool": {
+            "enable_priority_fees": false,
+            "eviction_policy": "",
+            "max_bytes": "0",
+            "max_size": "0",
+            "max_txs_per_account": 0,
+            "min_priority_fee": "0"
+          },
+          "partition_detection": {
+            "check_interval": "0s",
+            "enable_detection": false,
+            "min_connected_peers": 0,
+            "partition_threshold": 0
+          },
+          "rate_limit": {
+            "ban_duration": "0s",
+            "bandwidth_limit_per_peer": "0",
+            "burst_size": "0",
+            "max_requests_per_second": "0",
+            "window_duration": "0s"
+          },
+          "reputation": {
+            "decay_rate": "0",
+            "enable_tracking": false,
+            "good_behavior_reward": "0",
+            "initial_score": "0",
+            "max_score": "0",
+            "min_score_to_connect": "0",
+            "misbehavior_penalty": "0"
+          }
+        },
+        "privacy": {
+          "enable_confidential_transactions": false,
+          "enable_mixing": false,
+          "enable_network_privacy": false,
+          "enable_ring_signatures": false,
+          "enable_stealth_addresses": false,
+          "enable_zk_proofs": false,
+          "max_ring_size": 0,
+          "min_mixing_participants": 0,
+          "min_ring_size": 0,
+          "mixing_fee": "0",
+          "zk_proof_verification_cost": "0"
+        },
+        "validator": {
+          "double_sign_slash_fraction": "0",
+          "downtime_jail_duration": "0s",
+          "downtime_slash_fraction": "0",
+          "enable_auto_failover": false,
+          "enable_geo_distribution": false,
+          "failover_timeout": "0s",
+          "max_validators_per_region": 0,
+          "min_sentry_nodes": 0,
+          "min_signed_per_window": "0",
+          "minimum_stake_amount": "0",
+          "monitoring_interval": "0s",
+          "require_sentry_nodes": false,
+          "signed_blocks_window": "0"
+        },
+        "wallet": {
+          "default_daily_limit": "0",
+          "default_multisig_threshold": 0,
+          "default_session_timeout": "0s",
+          "enable_dust_filter": false,
+          "enable_phishing_protection": false,
+          "enable_spending_limits": false,
+          "enable_tx_simulation": false,
+          "max_concurrent_sessions": 0,
+          "max_multisig_signers": 0,
+          "max_recovery_guardians": 0,
+          "min_acceptable_amount": "0",
+          "min_recovery_guardians": 0,
+          "recovery_delay": "0s",
+          "require_domain_verification": false,
+          "require_hardware_wallet": false,
+          "require_simulation_approval": false
+        }
+      },
+      "privacy": {
+        "confidential_transactions": [],
+        "mixing_pools": [],
+        "ring_signatures": [],
+        "stealth_addresses": []
+      },
+      "validator_security": {
+        "alerts": [],
+        "double_sign_evidences": [],
+        "downtime_infractions": [],
+        "sentry_nodes": [],
+        "validators": []
+      },
+      "wallet_security": {
+        "biometric_auths": [],
+        "hardware_wallets": [],
+        "multisig_wallets": [],
+        "pending_multisig_txs": [],
+        "recovery_requests": [],
+        "social_recovery_configs": [],
+        "spending_limits": []
+      }
+    },
+    "slashing": {
+      "missed_blocks": [],
+      "params": {
+        "downtime_jail_duration": "600s",
+        "min_signed_per_window": "0.500000000000000000",
+        "signed_blocks_window": "100",
+        "slash_fraction_double_sign": "0.050000000000000000",
+        "slash_fraction_downtime": "0.010000000000000000"
+      },
+      "signing_infos": [
+        {
+          "address": "auratestvalcons1w2p7vgvu5nakc83zhlqld846fquhskguaj829c",
+          "validator_signing_info": {
+            "address": "",
+            "index_offset": "0",
+            "jailed_until": "0001-01-01T00:00:00Z",
+            "missed_blocks_counter": "0",
+            "start_height": "0",
+            "tombstoned": false
+          }
+        }
+      ]
+    },
+    "staking": {
+      "delegations": [
+        {
+          "delegator_address": "auratest1w2p7vgvu5nakc83zhlqld846fquhskgul8h0p3",
+          "shares": "90000000000.000000000000000000",
+          "validator_address": "auratestvaloper1w2p7vgvu5nakc83zhlqld846fquhskgufp5kfe"
+        }
+      ],
+      "exported": false,
+      "last_total_power": "90000",
+      "last_validator_powers": [
+        {
+          "address": "auratestvaloper1w2p7vgvu5nakc83zhlqld846fquhskgufp5kfe",
+          "power": "90000"
+        }
+      ],
+      "params": {
+        "bond_denom": "stake",
+        "historical_entries": 10000,
+        "max_entries": 7,
+        "max_validators": 100,
+        "min_commission_rate": "0.000000000000000000",
+        "unbonding_time": "1814400s"
+      },
+      "redelegations": [],
+      "unbonding_delegations": [],
+      "validators": [
+        {
+          "commission": {
+            "commission_rates": {
+              "max_change_rate": "0.010000000000000000",
+              "max_rate": "0.200000000000000000",
+              "rate": "0.100000000000000000"
+            },
+            "update_time": "2025-01-01T00:00:00Z"
+          },
+          "consensus_pubkey": {
+            "@type": "/cosmos.crypto.ed25519.PubKey",
+            "key": "Mo1IAs5LeWtCqg2Ic2dVTo1FxWSnDSl7yGIM2HuMWFU="
+          },
+          "delegator_shares": "90000000000.000000000000000000",
+          "description": {
+            "details": "",
+            "identity": "",
+            "moniker": "genesis-validator",
+            "security_contact": "",
+            "website": ""
+          },
+          "jailed": false,
+          "min_self_delegation": "1",
+          "operator_address": "auratestvaloper1w2p7vgvu5nakc83zhlqld846fquhskgufp5kfe",
+          "status": "BOND_STATUS_BONDED",
+          "tokens": "90000000000",
+          "unbonding_height": "0",
+          "unbonding_ids": [],
+          "unbonding_on_hold_ref_count": "0",
+          "unbonding_time": "1970-01-01T00:00:00Z"
+        }
+      ]
+    },
+    "validatorsecurity": {
+      "alerts": [],
+      "double_sign_evidences": [],
+      "downtime_infractions": [],
+      "params": {
+        "double_sign_slash_fraction": "0.050000000000000000",
+        "downtime_jail_duration": "3600s",
+        "downtime_slash_fraction": "0.010000000000000000",
+        "enable_auto_failover": true,
+        "enable_geo_distribution": true,
+        "failover_timeout": "300s",
+        "max_validators_per_region": 50,
+        "min_sentry_nodes": 2,
+        "min_signed_per_window": "0.500000000000000000",
+        "minimum_stake_amount": "1000000",
+        "monitoring_interval": "60s",
+        "require_sentry_nodes": true,
+        "signed_blocks_window": "1000"
+      },
+      "sentry_nodes": [],
+      "validators": []
+    },
+    "vcregistry": {
+      "attribute_vcs": [],
+      "did_documents": [],
+      "disclosure_policies": [],
+      "disclosure_requests": [],
+      "disclosure_responses": [],
+      "params": {
+        "default_vc_expiry_days": "365",
+        "did_network": "mainnet",
+        "did_prefix": "did:aura",
+        "max_mint_per_day": "5",
+        "max_mint_per_hour": "2",
+        "max_vcs_per_user": "50",
+        "mint_fee": "1000000uaura",
+        "policy_creation_deposit": "10000000uaura",
+        "rate_limiting_enabled": true,
+        "revocation_merkle_update_frequency": "100",
+        "revoke_fee": "0uaura"
+      },
+      "pending_disclosure_index": {},
+      "presentations": [],
+      "revocation_list": {
+        "last_updated": null,
+        "last_updated_height": "0",
+        "merkle_root": null,
+        "total_revocations": "0"
+      },
+      "revocation_records": [],
+      "used_nonces": [],
+      "user_attribute_index": {},
+      "user_mint_counts": {},
+      "user_presentation_index": {},
+      "vc_policies": [],
+      "vc_records": []
+    },
+    "walletsecurity": {
+      "biometric_configs": [],
+      "domain_verifications": [],
+      "dust_filters": [],
+      "dust_transactions": [],
+      "enclave_configs": [],
+      "encrypted_backups": [],
+      "hardware_wallets": [],
+      "multisig_wallets": [],
+      "params": {
+        "biometric_enabled": true,
+        "default_daily_limit": "1000000000",
+        "default_recovery_delay_seconds": "86400",
+        "default_session_timeout_seconds": "3600",
+        "dust_filter_enabled": true,
+        "hardware_wallet_enabled": true,
+        "lockout_duration_seconds": "300",
+        "max_biometric_attempts": 5,
+        "max_guardians": 5,
+        "max_session_duration_seconds": "86400",
+        "max_signers": 5,
+        "max_threshold": 5,
+        "min_dust_amount": "1000",
+        "min_recovery_threshold": 2,
+        "min_threshold": 2,
+        "phishing_protection_enabled": true,
+        "require_domain_verification": true,
+        "social_recovery_enabled": true,
+        "spending_limits_enabled": true,
+        "supported_hardware_types": []
+      },
+      "pending_transactions": [],
+      "phishing_configs": [],
+      "recovery_configs": [],
+      "recovery_requests": [],
+      "security_metrics": [],
+      "session_configs": [],
+      "spending_limits": []
+    },
+    "wasm": {
+      "codes": [],
+      "contracts": [],
+      "params": {
+        "code_upload_access": {
+          "addresses": [],
+          "permission": "Everybody"
+        },
+        "instantiate_default_permission": "Everybody"
+      },
+      "sequences": []
+    }
+  },
+  "app_version": "",
+  "chain_id": "aura-testnet-2",
+  "consensus": {
+    "params": {
+      "abci": {
+        "vote_extensions_enable_height": "0"
+      },
+      "block": {
+        "max_bytes": "22020096",
+        "max_gas": "-1"
+      },
+      "evidence": {
+        "max_age_duration": "172800000000000",
+        "max_age_num_blocks": "100000",
+        "max_bytes": "1048576"
+      },
+      "validator": {
+        "pub_key_types": [
+          "ed25519"
+        ]
+      },
+      "version": {
+        "app": "0"
+      }
+    },
+    "validators": [
+      {
+        "address": "7283E6219CA4FB6C1E22BFC1F69EBA483978591C",
+        "name": "genesis-validator",
+        "power": "90000",
+        "pub_key": {
+          "type": "tendermint/PubKeyEd25519",
+          "value": "Mo1IAs5LeWtCqg2Ic2dVTo1FxWSnDSl7yGIM2HuMWFU="
+        }
+      }
+    ]
+  },
+  "consensus_params": {
+    "abci": {
+      "vote_extensions_enable_height": "0"
+    },
+    "block": {
+      "max_bytes": "22020096",
+      "max_gas": "-1"
+    },
+    "evidence": {
+      "max_age_duration": "172800000000000",
+      "max_age_num_blocks": "100000",
+      "max_bytes": "1048576"
+    },
+    "validator": {
+      "pub_key_types": [
+        "ed25519"
+      ]
+    },
+    "version": {
+      "app": "0"
+    }
+  },
+  "genesis_time": "2025-01-01T00:00:00Z",
+  "initial_height": "1",
+  "validators": [
+    {
+      "address": "7283E6219CA4FB6C1E22BFC1F69EBA483978591C",
+      "name": "genesis-validator",
+      "power": "90000",
+      "pub_key": {
+        "type": "tendermint/PubKeyEd25519",
+        "value": "Mo1IAs5LeWtCqg2Ic2dVTo1FxWSnDSl7yGIM2HuMWFU="
+      }
+    }
+  ]
+}

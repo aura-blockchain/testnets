@@ -1,0 +1,4 @@
+# AURA Testnet Persistent Peers
+# Format: node_id@ip:port
+575fa6d80a2740df7e1ef4111c1a9d394f23b73f@158.69.119.76:26656
+4f3f81bcbdf15ec836b899c1a0982f02a2603f5d@139.99.149.160:26656

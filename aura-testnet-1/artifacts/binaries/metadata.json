@@ -1,0 +1,6 @@
+{
+  "linux-amd64": { "size": 179965048 },
+  "linux-arm64": { "size": 168354592 },
+  "darwin-amd64": { "size": 186940152 },
+  "darwin-arm64": { "size": 175789826 }
+}

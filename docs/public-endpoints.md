@@ -21,7 +21,7 @@ Public API endpoints for connecting to the AURA testnet.
 | REST API | `https://testnet-api.aurablockchain.org` |
 | gRPC | `testnet-grpc.aurablockchain.org:443` |
 | WebSocket | `wss://testnet-ws.aurablockchain.org` |
-| Prometheus Metrics | `https://testnet-rpc.aurablockchain.org:10660/metrics` |
+| Prometheus Metrics | `http://testnet-rpc.aurablockchain.org:10660/metrics` |
 
 ## Explorer & Tools
 

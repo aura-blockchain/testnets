@@ -28,7 +28,7 @@
     ],
     "metrics": [
       {
-        "url": "https://testnet-rpc.aurablockchain.org:10660/metrics",
+        "url": "http://testnet-rpc.aurablockchain.org:10660/metrics",
         "provider": "AURA Foundation",
         "format": "prometheus"
       }

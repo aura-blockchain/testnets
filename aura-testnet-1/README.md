@@ -108,6 +108,19 @@ d8ec2ae6a61262fe36f129f0931c49039b087e9e@testnet-rpc.aurablockchain.org:10756
 
 ## Quick Start
 
+### One-Line Installer (Fastest)
+
+```bash
+curl -sL https://get.aurablockchain.org | bash
+```
+
+This installs the binary, downloads genesis/configs, configures state sync, and creates a systemd service.
+
+Options:
+- `MONIKER=mynode curl -sL https://get.aurablockchain.org | bash` - Custom node name
+- `STATE_SYNC=false curl -sL https://get.aurablockchain.org | bash` - Disable state sync
+- `MODE=light curl -sL https://get.aurablockchain.org | bash` - Light pruning mode
+
 ### Option A: Pre-built Binary (Recommended)
 
 ```bash

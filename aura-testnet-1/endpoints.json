@@ -1,0 +1,49 @@
+{
+  "chain_id": "aura-testnet-1",
+  "network_type": "testnet",
+  "endpoints": {
+    "rpc": [
+      {
+        "url": "https://testnet-rpc.aurablockchain.org",
+        "provider": "AURA Foundation"
+      }
+    ],
+    "rest": [
+      {
+        "url": "https://testnet-api.aurablockchain.org",
+        "provider": "AURA Foundation"
+      }
+    ],
+    "grpc": [
+      {
+        "url": "testnet-grpc.aurablockchain.org:443",
+        "provider": "AURA Foundation"
+      }
+    ],
+    "websocket": [
+      {
+        "url": "wss://testnet-ws.aurablockchain.org",
+        "provider": "AURA Foundation"
+      }
+    ],
+    "metrics": [
+      {
+        "url": "https://testnet-rpc.aurablockchain.org:10660/metrics",
+        "provider": "AURA Foundation",
+        "format": "prometheus"
+      }
+    ]
+  },
+  "explorers": [
+    {
+      "name": "AURA Explorer",
+      "url": "https://testnet-explorer.aurablockchain.org"
+    }
+  ],
+  "faucets": [
+    {
+      "url": "https://testnet-faucet.aurablockchain.org"
+    }
+  ],
+  "status_page": "https://status.aurablockchain.org"
+}

@@ -88,6 +88,7 @@ curl -L https://artifacts.aurablockchain.org/snapshots/aura-testnet-1-pruned-lat
 | REST API | https://testnet-api.aurablockchain.org | [Swagger](https://testnet-api.aurablockchain.org/swagger/) |
 | gRPC | testnet-grpc.aurablockchain.org:443 | - |
 | WebSocket | wss://testnet-ws.aurablockchain.org | - |
+| Prometheus Metrics | https://testnet-rpc.aurablockchain.org:10660/metrics | - |
 | Explorer | https://testnet-explorer.aurablockchain.org | - |
 | Faucet | https://testnet-faucet.aurablockchain.org | - |
 | Status Page | https://status.aurablockchain.org | - |

@@ -10,5 +10,6 @@ This repository contains genesis files, configuration, and documentation for AUR
 
 ## Resources
 
+- [Public Endpoints](./docs/public-endpoints.md)
 - [AURA Documentation](https://github.com/aura-blockchain/aura)
 - [Artifacts CDN](https://artifacts.aurablockchain.org)

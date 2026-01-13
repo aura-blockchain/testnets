@@ -2,31 +2,50 @@ export default {
   async fetch(request, env) {
     const url = new URL(request.url);
     let path = url.pathname.slice(1); // Remove leading slash
-    
+
+    // Handle PUT requests for upload (requires secret header)
+    if (request.method === 'PUT') {
+      const uploadSecret = request.headers.get('X-Upload-Secret');
+      if (uploadSecret !== env.UPLOAD_SECRET) {
+        return new Response('Unauthorized', { status: 401 });
+      }
+
+      const body = await request.arrayBuffer();
+      const contentType = request.headers.get('Content-Type') || 'application/octet-stream';
+
+      await env.BUCKET.put(path, body, {
+        httpMetadata: { contentType }
+      });
+
+      return new Response(JSON.stringify({ success: true, path }), {
+        headers: { 'Content-Type': 'application/json' }
+      });
+    }
+
     // Serve index.html for root path
     if (path === '' || path === '/') {
       path = 'index.html';
     }
-    
+
     // Get object from R2
     const object = await env.BUCKET.get(path);
-    
+
     if (!object) {
       return new Response('Not Found', { status: 404 });
     }
-    
+
     // Determine content type
     const contentType = object.httpMetadata?.contentType || getContentType(path);
-    
+
     const headers = new Headers();
     headers.set('Content-Type', contentType);
     headers.set('Cache-Control', 'public, max-age=300'); // 5 min cache
-    
+
     // Set Content-Disposition for downloads
     if (object.httpMetadata?.contentDisposition) {
       headers.set('Content-Disposition', object.httpMetadata.contentDisposition);
     }
-    
+
     return new Response(object.body, { headers });
   }
 };

@@ -9,3 +9,6 @@ bucket_name = "aura-testnet-artifacts"
 [[routes]]
 pattern = "artifacts.aurablockchain.org/*"
 zone_name = "aurablockchain.org"
+
+[vars]
+UPLOAD_SECRET = "aura-mvp-upload-2026"

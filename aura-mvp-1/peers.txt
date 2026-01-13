@@ -1,0 +1,9 @@
+# AURA MVP Testnet (aura-mvp-1) Peers
+# Connect to sentry nodes only - validators are private
+
+# Sentry Nodes (public)
+f5ce5e5ce5dd77bdbfd636fb8148756f6df9c531@158.69.119.76:26681
+35fdadb8b017fc95023a384c7769b946f363294e@139.99.149.160:26681
+
+# Persistent peers string (copy this to config.toml):
+# persistent_peers = "f5ce5e5ce5dd77bdbfd636fb8148756f6df9c531@158.69.119.76:26681,35fdadb8b017fc95023a384c7769b946f363294e@139.99.149.160:26681"

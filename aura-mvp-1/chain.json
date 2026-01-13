@@ -4,7 +4,7 @@
   "chain_id": "aura-mvp-1",
   "chain_type": "cosmos",
   "pretty_name": "AURA MVP Testnet",
-  "status": "upcoming",
+  "status": "live",
   "network_type": "testnet",
   "bech32_prefix": "aura",
   "daemon_name": "aurad",
@@ -43,25 +43,19 @@
       "genesis_url": "https://artifacts.aurablockchain.org/mvp/genesis.json"
     }
   },
-  "description": "AURA MVP release testnet with 12 essential modules for credential verification.",
+  "description": "AURA MVP release testnet with 12 essential modules for credential verification. Uses sentry node architecture for DDoS protection.",
   "peers": {
-    "seeds": [
-      {
-        "id": "TBD",
-        "address": "testnet-rpc.aurablockchain.org:10656",
-        "provider": "AURA Foundation"
-      }
-    ],
+    "seeds": [],
     "persistent_peers": [
       {
-        "id": "TBD",
-        "address": "testnet-rpc.aurablockchain.org:10656",
-        "provider": "AURA Foundation"
+        "id": "f5ce5e5ce5dd77bdbfd636fb8148756f6df9c531",
+        "address": "158.69.119.76:26681",
+        "provider": "AURA Foundation (sentry-1)"
       },
       {
-        "id": "TBD",
-        "address": "testnet-rpc.aurablockchain.org:10756",
-        "provider": "AURA Foundation"
+        "id": "35fdadb8b017fc95023a384c7769b946f363294e",
+        "address": "139.99.149.160:26681",
+        "provider": "AURA Foundation (sentry-2)"
       }
     ]
   },

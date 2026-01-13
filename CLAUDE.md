@@ -22,26 +22,40 @@
 - Tests, Makefiles, Dockerfiles
 - General documentation
 
-## Health Check
-Run `~/blockchain-projects/scripts/testnet-health-check.sh` for all testnets.
+## Active Testnet: aura-mvp-1
 
-## Port Configuration (AURA Testnet - Port Range 10000-10999)
+The MVP testnet uses a **sentry node architecture** for DDoS protection.
 
-**4-Validator Setup** with staged deployment (2→3→4 validators)
+### Sentry Architecture
 
-### Validator Ports (aura-testnet / 10.10.0.1)
-| Validator | RPC | P2P | gRPC | REST | Prometheus |
-|-----------|-----|-----|------|------|------------|
-| Val 1 | 10657 | 10656 | 10090 | 10317 | 10660 |
-| Val 2 | 10757 | 10756 | 10190 | 10417 | 10760 |
+External nodes connect to public sentry nodes, NOT directly to validators.
 
-### Validator Ports (services-testnet / 10.10.0.4)
-| Validator | RPC | P2P | gRPC | REST | Prometheus |
-|-----------|-----|-----|------|------|------------|
-| Val 3 | 10857 | 10856 | 10290 | 10517 | 10860 |
-| Val 4 | 10957 | 10956 | 10390 | 10617 | 10960 |
+```
+[External Nodes] → [Sentry-1/Sentry-2] → [Validators]
+                         ↓
+                   [Public Services]
+```
+
+### Sentry Nodes (Public P2P)
+
+| Sentry | Server | P2P Address | Node ID |
+|--------|--------|-------------|---------|
+| sentry-1 | aura-testnet | 158.69.119.76:26681 | f5ce5e5ce5dd77bdbfd636fb8148756f6df9c531 |
+| sentry-2 | services-testnet | 139.99.149.160:26681 | 35fdadb8b017fc95023a384c7769b946f363294e |
+
+### Validators (Private - NO direct access)
+
+Validators are protected behind sentries with `pex=false`.
+
+| Validator | Server | VPN Only |
+|-----------|--------|----------|
+| val1 | aura-testnet | 10.10.0.1:26656 |
+| val2 | aura-testnet | 10.10.0.1:26756 |
+| val3 | services-testnet | 10.10.0.4:26656 |
+| val4 | services-testnet | 10.10.0.4:26756 |
 
 ### Public Endpoints
+
 | Service | URL |
 |---------|-----|
 | RPC | https://testnet-rpc.aurablockchain.org |
@@ -50,13 +64,38 @@ Run `~/blockchain-projects/scripts/testnet-health-check.sh` for all testnets.
 | Explorer | https://testnet-explorer.aurablockchain.org |
 | Faucet | https://testnet-faucet.aurablockchain.org |
 
-### Service Ports
+### Service Ports (aura-testnet)
+
 | Service | Port |
 |---------|------|
-| Explorer API | 10080 |
-| Faucet API | 10081 |
-| WS Proxy | 10082 |
+| Sentry RPC | 26680 |
+| Sentry P2P | 26681 |
+| Sentry API | 1380 |
+| Sentry gRPC | 19080 |
+| Explorer | 10080 |
 | GraphQL | 10400 |
-| cosmos-exporter | 10300 |
+| WS Proxy | 10082 |
+| Faucet | 8080 |
+| cosmos-exporter | 9300 |
 
-See `aura-testnet-1/TESTNET_SETUP.md` for full deployment checklist.
+## Health Check
+
+```bash
+# On aura-testnet server
+~/aura-health.sh
+
+# Or run daemon mode
+~/aura-health.sh daemon 60
+```
+
+## Connecting External Node
+
+External nodes should connect to sentry nodes only:
+
+```bash
+# Set persistent peers to sentry nodes
+PEERS="f5ce5e5ce5dd77bdbfd636fb8148756f6df9c531@158.69.119.76:26681,35fdadb8b017fc95023a384c7769b946f363294e@139.99.149.160:26681"
+sed -i "s/^persistent_peers = .*/persistent_peers = \"$PEERS\"/" ~/.aura/config/config.toml
+```
+
+See `aura-mvp-1/README.md` for full setup instructions.

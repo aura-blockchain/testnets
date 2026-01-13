@@ -6,7 +6,7 @@ Public API endpoints for connecting to the AURA testnet.
 
 | Property | Value |
 |----------|-------|
-| Chain ID | `aura-testnet-1` |
+| Chain ID | `aura-mvp-1` |
 | Version | v0.1.0 |
 | Status | Active |
 | Native Token | AURA (uaura) |

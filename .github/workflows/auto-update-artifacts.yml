@@ -1,0 +1,161 @@
+name: Auto-Update Testnet Artifacts
+
+on:
+  schedule:
+    # Every 6 hours for peers
+    - cron: '0 */6 * * *'
+  workflow_dispatch:
+    inputs:
+      action:
+        description: 'Action to perform'
+        required: true
+        default: 'sync-all'
+        type: choice
+        options:
+          - sync-all
+          - update-peers
+          - update-state-sync
+          - update-docs
+
+env:
+  CHAIN_ID: aura-mvp-1
+  R2_BUCKET: aura-testnet-artifacts
+
+jobs:
+  update-artifacts:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout testnets repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install wrangler
+        run: npm install -g wrangler
+
+      - name: Fetch latest block info
+        id: chain-info
+        run: |
+          # Fetch from public RPC
+          STATUS=$(curl -s https://testnet-rpc.aurablockchain.org/status || echo '{}')
+          HEIGHT=$(echo "$STATUS" | jq -r '.result.sync_info.latest_block_height // "unknown"')
+          TRUST_HEIGHT=$((HEIGHT - 1000))
+          TRUST_HASH=$(curl -s "https://testnet-rpc.aurablockchain.org/block?height=${TRUST_HEIGHT}" | jq -r '.result.block_id.hash // ""')
+
+          echo "height=$HEIGHT" >> $GITHUB_OUTPUT
+          echo "trust_height=$TRUST_HEIGHT" >> $GITHUB_OUTPUT
+          echo "trust_hash=$TRUST_HASH" >> $GITHUB_OUTPUT
+
+      - name: Fetch live peers
+        id: peers
+        run: |
+          PEERS=$(curl -s https://testnet-rpc.aurablockchain.org/net_info | \
+            jq -r '.result.peers[] | .node_info.id + "@" + .remote_ip + ":" + (.node_info.listen_addr | split(":")[-1])' | \
+            head -20 || echo "")
+          echo "$PEERS" > peers_live.txt
+          echo "count=$(wc -l < peers_live.txt)" >> $GITHUB_OUTPUT
+
+      - name: Update peers.txt
+        run: |
+          cat > ${{ env.CHAIN_ID }}/peers.txt << 'EOF'
+          # AURA Testnet (${{ env.CHAIN_ID }}) Persistent Peers
+          # Generated: $(date -u +%Y-%m-%dT%H:%M:%SZ)
+          # Auto-updated every 6 hours via GitHub Actions
+          #
+          # Public sentry nodes (recommended):
+          f5ce5e5ce5dd77bdbfd636fb8148756f6df9c531@158.69.119.76:26681
+          35fdadb8b017fc95023a384c7769b946f363294e@139.99.149.160:26681
+
+          # Live peers:
+          EOF
+          cat peers_live.txt >> ${{ env.CHAIN_ID }}/peers.txt
+
+      - name: Update state_sync.md
+        run: |
+          cat > ${{ env.CHAIN_ID }}/state_sync.md << EOF
+          # AURA Testnet State Sync
+
+          > **Auto-updated**: $(date -u +%Y-%m-%dT%H:%M:%SZ)
+          > **Chain ID**: ${{ env.CHAIN_ID }}
+
+          ## Configuration
+
+          \`\`\`toml
+          [statesync]
+          enable = true
+          rpc_servers = "https://testnet-rpc.aurablockchain.org:443,https://testnet-rpc.aurablockchain.org:443"
+          trust_height = ${{ steps.chain-info.outputs.trust_height }}
+          trust_hash = "${{ steps.chain-info.outputs.trust_hash }}"
+          trust_period = "168h0m0s"
+          \`\`\`
+
+          ## Quick Setup
+
+          1. Reset node: \`aurad tendermint unsafe-reset-all --home ~/.aura --keep-addr-book\`
+          2. Update config.toml with above values
+          3. Start: \`aurad start\`
+
+          ---
+          *Auto-updated by GitHub Actions*
+          EOF
+
+      - name: Update SNAPSHOTS.md
+        run: |
+          cat > ${{ env.CHAIN_ID }}/SNAPSHOTS.md << EOF
+          # AURA Testnet Snapshots
+
+          > **Updated**: $(date -u +%Y-%m-%dT%H:%M:%SZ)
+          > **Chain ID**: ${{ env.CHAIN_ID }}
+          > **Height**: ${{ steps.chain-info.outputs.height }}
+
+          ## Download
+
+          \`\`\`bash
+          curl -L https://artifacts.aurablockchain.org/${{ env.CHAIN_ID }}/snapshots/latest.tar.lz4 -o snapshot.tar.lz4
+          lz4 -d snapshot.tar.lz4 | tar -xf - -C ~/.aura/data/
+          \`\`\`
+
+          ## Schedule
+
+          - Daily snapshots at 00:00 UTC
+          - Retained for 7 days
+
+          ---
+          *Auto-updated by GitHub Actions*
+          EOF
+
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if ! git diff --cached --quiet; then
+            git commit -m "chore: auto-update testnet artifacts $(date +%Y-%m-%d)"
+            git push
+          fi
+
+      - name: Upload to R2
+        if: github.event_name == 'workflow_dispatch' || github.event.schedule == '0 */6 * * *'
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          # Upload peers.txt
+          wrangler r2 object put ${{ env.R2_BUCKET }}/${{ env.CHAIN_ID }}/peers.txt \
+            --file ${{ env.CHAIN_ID }}/peers.txt --remote
+
+          # Upload state-sync.json
+          cat > /tmp/state-sync.json << EOF
+          {
+            "chain_id": "${{ env.CHAIN_ID }}",
+            "trust_height": ${{ steps.chain-info.outputs.trust_height }},
+            "trust_hash": "${{ steps.chain-info.outputs.trust_hash }}",
+            "rpc_servers": "https://testnet-rpc.aurablockchain.org:443",
+            "timestamp": "$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          }
+          EOF
+          wrangler r2 object put ${{ env.R2_BUCKET }}/${{ env.CHAIN_ID }}/state-sync.json \
+            --file /tmp/state-sync.json --remote

@@ -9,7 +9,7 @@
 
 set -euo pipefail
 
-CHAIN_ID="aura-testnet-1"
+CHAIN_ID="aura-mvp-1"
 MONIKER="${MONIKER:-aura-$(hostname)}"
 AURA_HOME="${AURA_HOME:-$HOME/.aura}"
 BINARY="aurad"

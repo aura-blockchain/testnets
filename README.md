@@ -6,7 +6,7 @@ This repository contains genesis files, configuration, and documentation for AUR
 
 | Network | Chain ID | Status |
 |---------|----------|--------|
-| [aura-testnet-1](./aura-testnet-1/) | `aura-testnet-1` | Devnet |
+| [aura-mvp-1](./aura-mvp-1/) | `aura-mvp-1` | MVP Testnet |
 
 ## Resources
 

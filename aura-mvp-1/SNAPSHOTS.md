@@ -6,8 +6,8 @@ This document describes how to use snapshots for fast node synchronization.
 
 | Type | Size | Update Frequency | Pruning | Download |
 |------|------|------------------|---------|----------|
-| Pruned | ~5 GB | Daily | default | [Download](https://artifacts.aurablockchain.org/snapshots/aura-testnet-1-pruned-latest.tar.lz4) |
-| Archive | ~20 GB | Weekly | nothing | [Download](https://artifacts.aurablockchain.org/snapshots/aura-testnet-1-archive-latest.tar.lz4) |
+| Pruned | ~5 GB | Daily | default | [Download](https://artifacts.aurablockchain.org/snapshots/aura-mvp-1-pruned-latest.tar.lz4) |
+| Archive | ~20 GB | Weekly | nothing | [Download](https://artifacts.aurablockchain.org/snapshots/aura-mvp-1-archive-latest.tar.lz4) |
 
 ## Quick Restore
 
@@ -24,7 +24,7 @@ cp ~/.aura/data/priv_validator_state.json ~/.aura/priv_validator_state.json.back
 rm -rf ~/.aura/data
 
 # 4. Download and extract snapshot
-curl -L https://artifacts.aurablockchain.org/snapshots/aura-testnet-1-pruned-latest.tar.lz4 | lz4 -dc - | tar -xf - -C ~/.aura
+curl -L https://artifacts.aurablockchain.org/snapshots/aura-mvp-1-pruned-latest.tar.lz4 | lz4 -dc - | tar -xf - -C ~/.aura
 
 # 5. Restore priv_validator_state.json
 cp ~/.aura/priv_validator_state.json.backup ~/.aura/data/priv_validator_state.json
@@ -46,7 +46,7 @@ cp ~/.aura/data/priv_validator_state.json ~/.aura/priv_validator_state.json.back
 rm -rf ~/.aura/data
 
 # 4. Download and extract snapshot
-curl -L https://artifacts.aurablockchain.org/snapshots/aura-testnet-1-archive-latest.tar.lz4 | lz4 -dc - | tar -xf - -C ~/.aura
+curl -L https://artifacts.aurablockchain.org/snapshots/aura-mvp-1-archive-latest.tar.lz4 | lz4 -dc - | tar -xf - -C ~/.aura
 
 # 5. Restore priv_validator_state.json
 cp ~/.aura/priv_validator_state.json.backup ~/.aura/data/priv_validator_state.json
@@ -61,10 +61,10 @@ Each snapshot comes with a checksum file:
 
 ```bash
 # Download checksum
-curl -O https://artifacts.aurablockchain.org/snapshots/aura-testnet-1-pruned-latest.sha256
+curl -O https://artifacts.aurablockchain.org/snapshots/aura-mvp-1-pruned-latest.sha256
 
 # Verify (after downloading the snapshot)
-sha256sum -c aura-testnet-1-pruned-latest.sha256
+sha256sum -c aura-mvp-1-pruned-latest.sha256
 ```
 
 ## Snapshot Contents

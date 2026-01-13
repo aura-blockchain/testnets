@@ -1,0 +1,32 @@
+{
+  "chain_name": "auramvp",
+  "versions": [
+    {
+      "name": "v1.0.0-mvp",
+      "tag": "v1.0.0-mvp",
+      "height": 1,
+      "recommended_version": "v1.0.0-mvp",
+      "compatible_versions": ["v1.0.0-mvp"],
+      "cosmos_sdk_version": "v0.50.x",
+      "ibc_go_version": "v8.x",
+      "consensus": {
+        "type": "cometbft",
+        "version": "v0.38.x"
+      },
+      "cosmwasm_enabled": true,
+      "cosmwasm_version": "v0.45.0",
+      "binaries": {
+        "linux/amd64": "https://artifacts.aurablockchain.org/mvp/v1.0.0-mvp/aurad-v1.0.0-mvp-linux-amd64",
+        "linux/arm64": "https://artifacts.aurablockchain.org/mvp/v1.0.0-mvp/aurad-v1.0.0-mvp-linux-arm64",
+        "darwin/amd64": "https://artifacts.aurablockchain.org/mvp/v1.0.0-mvp/aurad-v1.0.0-mvp-darwin-amd64",
+        "darwin/arm64": "https://artifacts.aurablockchain.org/mvp/v1.0.0-mvp/aurad-v1.0.0-mvp-darwin-arm64"
+      },
+      "modules": {
+        "cosmos_sdk": ["auth", "bank", "staking", "slashing", "distribution", "consensus", "upgrade", "params", "genutil"],
+        "cosmwasm": ["wasm"],
+        "aura_custom": ["identity", "vcregistry", "dataregistry", "compliance", "governance", "prevalidation"]
+      },
+      "next_version_name": "v1.1.0"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "$schema": "../assetlist.schema.json",
+  "chain_name": "auramvp",
+  "assets": [
+    {
+      "description": "The native staking and governance token of the AURA MVP testnet.",
+      "denom_units": [
+        {
+          "denom": "uaura",
+          "exponent": 0
+        },
+        {
+          "denom": "aura",
+          "exponent": 6
+        }
+      ],
+      "base": "uaura",
+      "name": "AURA",
+      "display": "aura",
+      "symbol": "AURA",
+      "logo_URIs": {
+        "png": "https://artifacts.aurablockchain.org/assets/aura-logo.png",
+        "svg": "https://artifacts.aurablockchain.org/assets/aura-logo.svg"
+      },
+      "coingecko_id": "",
+      "keywords": ["staking", "governance", "testnet"]
+    }
+  ]
+}

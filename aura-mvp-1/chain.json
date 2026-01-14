@@ -67,13 +67,21 @@
     "rpc": [
       {
         "address": "https://testnet-rpc.aurablockchain.org",
-        "provider": "AURA Foundation"
+        "provider": "AURA Foundation (sentry-1)"
+      },
+      {
+        "address": "https://testnet-rpc-2.aurablockchain.org",
+        "provider": "AURA Foundation (sentry-2)"
       }
     ],
     "rest": [
       {
         "address": "https://testnet-api.aurablockchain.org",
-        "provider": "AURA Foundation"
+        "provider": "AURA Foundation (sentry-1)"
+      },
+      {
+        "address": "https://testnet-api-2.aurablockchain.org",
+        "provider": "AURA Foundation (sentry-2)"
       }
     ],
     "grpc": [
@@ -84,6 +92,12 @@
     ]
   },
   "explorers": [
+    {
+      "kind": "ping.pub",
+      "url": "https://explorer.aurablockchain.org/aura",
+      "tx_page": "https://explorer.aurablockchain.org/aura/tx/${txHash}",
+      "account_page": "https://explorer.aurablockchain.org/aura/account/${accountAddress}"
+    },
     {
       "kind": "AURA Explorer",
       "url": "https://testnet-explorer.aurablockchain.org",

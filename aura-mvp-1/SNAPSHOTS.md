@@ -1,140 +1,48 @@
 # AURA Testnet Snapshots
 
-This document describes how to use snapshots for fast node synchronization.
+> **Auto-updated**: 2026-01-14T01:00:01Z
+> **Chain ID**: aura-mvp-1
+> **Latest Height**: unknown
 
-## Available Snapshots
+## Quick Start
 
-| Type | Size | Update Frequency | Pruning | Download |
-|------|------|------------------|---------|----------|
-| Pruned | ~5 GB | Daily | default | [Download](https://artifacts.aurablockchain.org/snapshots/aura-mvp-1-pruned-latest.tar.lz4) |
-| Archive | ~20 GB | Weekly | nothing | [Download](https://artifacts.aurablockchain.org/snapshots/aura-mvp-1-archive-latest.tar.lz4) |
-
-## Quick Restore
-
-### Using Pruned Snapshot (Recommended)
+### Download Latest Snapshot
 
 ```bash
-# 1. Stop the node
-sudo systemctl stop aurad
+# Download
+curl -L https://artifacts.aurablockchain.org/aura-mvp-1/snapshots/latest.tar.lz4 -o snapshot.tar.lz4
 
-# 2. Backup priv_validator_state.json
-cp ~/.aura/data/priv_validator_state.json ~/.aura/priv_validator_state.json.backup
-
-# 3. Remove old data
-rm -rf ~/.aura/data
-
-# 4. Download and extract snapshot
-curl -L https://artifacts.aurablockchain.org/snapshots/aura-mvp-1-pruned-latest.tar.lz4 | lz4 -dc - | tar -xf - -C ~/.aura
-
-# 5. Restore priv_validator_state.json
-cp ~/.aura/priv_validator_state.json.backup ~/.aura/data/priv_validator_state.json
-
-# 6. Start the node
-sudo systemctl start aurad
+# Extract (stop node first!)
+lz4 -d snapshot.tar.lz4 | tar -xf - -C ~/.aura/data/
 ```
 
-### Using Archive Snapshot
+### Using wget with aria2 (faster)
 
 ```bash
-# 1. Stop the node
-sudo systemctl stop aurad
-
-# 2. Backup priv_validator_state.json
-cp ~/.aura/data/priv_validator_state.json ~/.aura/priv_validator_state.json.backup
-
-# 3. Remove old data
-rm -rf ~/.aura/data
-
-# 4. Download and extract snapshot
-curl -L https://artifacts.aurablockchain.org/snapshots/aura-mvp-1-archive-latest.tar.lz4 | lz4 -dc - | tar -xf - -C ~/.aura
-
-# 5. Restore priv_validator_state.json
-cp ~/.aura/priv_validator_state.json.backup ~/.aura/data/priv_validator_state.json
-
-# 6. Start the node
-sudo systemctl start aurad
+aria2c -x 16 -s 16 https://artifacts.aurablockchain.org/aura-mvp-1/snapshots/latest.tar.lz4
 ```
-
-## Snapshot Verification
-
-Each snapshot comes with a checksum file:
-
-```bash
-# Download checksum
-curl -O https://artifacts.aurablockchain.org/snapshots/aura-mvp-1-pruned-latest.sha256
-
-# Verify (after downloading the snapshot)
-sha256sum -c aura-mvp-1-pruned-latest.sha256
-```
-
-## Snapshot Contents
-
-The snapshot archive contains:
-
-```
-data/
-├── application.db/    # Application state
-├── blockstore.db/     # Block storage
-├── cs.wal/            # Consensus WAL
-├── evidence.db/       # Evidence database
-├── snapshots/         # State sync snapshots
-├── state.db/          # State database
-└── tx_index.db/       # Transaction index
-```
-
-## When to Use Snapshots
-
-**Use Pruned Snapshot When:**
-- Setting up a new full node
-- Node fell too far behind to sync normally
-- Quick recovery after data corruption
-- Testing purposes
-
-**Use Archive Snapshot When:**
-- Running an archive/indexer node
-- Need full historical data
-- Running block explorers
-- Historical queries required
-
-## Alternative: State Sync
-
-For even faster sync without downloading large files, use [State Sync](./state_sync.md).
 
 ## Snapshot Schedule
 
-| Snapshot Type | Generation Time (UTC) |
-|---------------|----------------------|
-| Pruned (daily) | 00:00 |
-| Archive (weekly) | Sunday 00:00 |
+| Frequency | Time (UTC) | Retention |
+|-----------|------------|-----------|
+| Daily | 00:00 | 7 days |
+| Weekly | Sunday 00:00 | 30 days |
 
-## Troubleshooting
+## Available Snapshots
 
-### "Wrong Block.Header.AppHash" Error
+Check latest at: https://artifacts.aurablockchain.org/aura-mvp-1/snapshots/
 
-This usually means the snapshot is incompatible with your binary version:
-1. Ensure you're using the correct binary version
-2. Try a newer snapshot
-3. Use state sync instead
+## State Sync Alternative
 
-### Slow Extraction
+For faster sync without downloading snapshots:
 
-For faster extraction, ensure you have `lz4` installed:
 ```bash
-# Ubuntu/Debian
-sudo apt install lz4
-
-# macOS
-brew install lz4
+# Get state-sync info
+curl -s https://artifacts.aurablockchain.org/aura-mvp-1/state-sync.json
 ```
 
-### Disk Space Issues
+See [state_sync.md](state_sync.md) for configuration details.
 
-Before restoring, ensure you have enough disk space:
-- Pruned: At least 15 GB free
-- Archive: At least 50 GB free
-
-## Support
-
-For snapshot-related issues:
-- GitHub: https://github.com/aura-blockchain/testnets/issues
-- Discord: https://discord.gg/RwQ8pma6
+---
+*This file is automatically updated by CI/CD. Do not edit manually.*

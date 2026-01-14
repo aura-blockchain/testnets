@@ -9,7 +9,9 @@
   "bech32_prefix": "aura",
   "daemon_name": "aurad",
   "node_home": "$HOME/.aura",
-  "key_algos": ["secp256k1"],
+  "key_algos": [
+    "secp256k1"
+  ],
   "slip44": 118,
   "fees": {
     "fee_tokens": [
@@ -32,7 +34,9 @@
   "codebase": {
     "git_repo": "https://github.com/aura-blockchain/aura",
     "recommended_version": "v1.0.0-mvp",
-    "compatible_versions": ["v1.0.0-mvp"],
+    "compatible_versions": [
+      "v1.0.0-mvp"
+    ],
     "binaries": {
       "linux/amd64": "https://artifacts.aurablockchain.org/mvp/v1.0.0-mvp/aurad-v1.0.0-mvp-linux-amd64",
       "linux/arm64": "https://artifacts.aurablockchain.org/mvp/v1.0.0-mvp/aurad-v1.0.0-mvp-linux-arm64",
@@ -94,8 +98,28 @@
     }
   },
   "mvp_modules": {
-    "cosmos_sdk": ["auth", "bank", "staking", "slashing", "distribution", "consensus", "upgrade", "params", "genutil"],
-    "cosmwasm": ["wasm"],
-    "aura_custom": ["identity", "vcregistry", "dataregistry", "compliance", "governance", "prevalidation"]
-  }
+    "cosmos_sdk": [
+      "auth",
+      "bank",
+      "staking",
+      "slashing",
+      "distribution",
+      "consensus",
+      "upgrade",
+      "params",
+      "genutil"
+    ],
+    "cosmwasm": [
+      "wasm"
+    ],
+    "aura_custom": [
+      "identity",
+      "vcregistry",
+      "dataregistry",
+      "compliance",
+      "governance",
+      "prevalidation"
+    ]
+  },
+  "updated": "2026-01-14T01:00:01Z"
 }

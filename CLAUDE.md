@@ -69,12 +69,24 @@ f5ce5e5ce5dd77bdbfd636fb8148756f6df9c531@158.69.119.76:26681,35fdadb8b017fc95023
 
 ### Public Endpoints
 
+**Primary (aura-testnet / sentry1)**:
 | Service | URL |
 |---------|-----|
 | RPC | https://testnet-rpc.aurablockchain.org |
 | REST API | https://testnet-api.aurablockchain.org |
 | gRPC | testnet-grpc.aurablockchain.org:443 |
-| Explorer | https://testnet-explorer.aurablockchain.org |
+
+**Secondary (services-testnet / sentry2)**:
+| Service | URL |
+|---------|-----|
+| RPC | https://testnet-rpc-2.aurablockchain.org |
+| REST API | https://testnet-api-2.aurablockchain.org |
+
+**Services**:
+| Service | URL |
+|---------|-----|
+| Explorer (Ping.pub) | https://explorer.aurablockchain.org/aura |
+| Legacy Explorer | https://testnet-explorer.aurablockchain.org |
 | Faucet | https://testnet-faucet.aurablockchain.org |
 
 ### Service Ports (aura-testnet internal)

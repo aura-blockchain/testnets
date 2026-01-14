@@ -127,13 +127,28 @@ The AURA MVP testnet (`aura-mvp-1`) is a 4-validator Cosmos SDK network with sen
 
 All public traffic is routed through Cloudflare:
 
+### Primary Endpoints (aura-testnet / sentry1)
+
 | Service | URL | Backend |
 |---------|-----|---------|
-| RPC | https://testnet-rpc.aurablockchain.org | Sentry RPC via nginx |
-| REST API | https://testnet-api.aurablockchain.org | Val1 REST :1317 |
+| RPC | https://testnet-rpc.aurablockchain.org | Sentry1 RPC :26680 |
+| REST API | https://testnet-api.aurablockchain.org | Sentry1 REST :1380 |
 | gRPC | testnet-grpc.aurablockchain.org:443 | Val1 gRPC :19090 |
 | WebSocket | wss://testnet-ws.aurablockchain.org | WS Proxy :10082 |
-| Explorer | https://testnet-explorer.aurablockchain.org | Explorer :10080 |
+
+### Secondary Endpoints (services-testnet / sentry2)
+
+| Service | URL | Backend |
+|---------|-----|---------|
+| RPC | https://testnet-rpc-2.aurablockchain.org | Sentry2 RPC :26680 |
+| REST API | https://testnet-api-2.aurablockchain.org | Sentry2 REST :1380 |
+
+### Services
+
+| Service | URL | Backend |
+|---------|-----|---------|
+| Explorer (Ping.pub) | https://explorer.aurablockchain.org/aura | Static /var/www/ping-explorer |
+| Legacy Explorer | https://testnet-explorer.aurablockchain.org | Explorer :10080 |
 | Faucet | https://testnet-faucet.aurablockchain.org | Faucet :8080 |
 | Artifacts | https://artifacts.aurablockchain.org | Cloudflare R2 |
 
